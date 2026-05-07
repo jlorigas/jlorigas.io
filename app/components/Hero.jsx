@@ -255,7 +255,7 @@ export default function Hero() {
                   <div className="absolute inset-0 z-0 rounded-[1.5rem] bg-[#0a0a0a]/80" />
                   <div className="relative z-10 h-full w-full overflow-hidden rounded-[1.25rem] bg-gradient-to-br from-cyan-500/20 to-purple-500/20">
                     <Image
-                      src="/profile.png"
+                      src="public/profile.png"
                       alt="Jomar Lorigas"
                       fill
                       priority
