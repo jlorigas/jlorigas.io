@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ShieldCheck } from "lucide-react";
 import AnimatedShowcase from "./ui/animated-showcase";
+import { withBasePath } from "../lib/base-path";
 
 const certificates = [
   {
@@ -14,7 +15,7 @@ const certificates = [
     subtitle: "Simplilearn Credential",
     description:
       "A beginner-friendly SQL certificate that helped me strengthen my understanding of queries, tables, and relational databases.",
-    image: "/Certificates/sqlcert.jpg",
+    image: withBasePath("/Certificates/sqlcert.jpg"),
     tags: ["SQL", "Databases", "Queries"],
     details: [
       { label: "Issuer", value: "Simplilearn" },
@@ -23,11 +24,11 @@ const certificates = [
     ],
     primaryAction: {
       label: "Open Certificate",
-      href: "/Certificates/Sql Cert.pdf",
+      href: withBasePath("/Certificates/Sql Cert.pdf"),
     },
     secondaryAction: {
       label: "View PDF",
-      href: "/Certificates/Sql Cert.pdf",
+      href: withBasePath("/Certificates/Sql Cert.pdf"),
     },
   },
   {
@@ -39,7 +40,7 @@ const certificates = [
     subtitle: "Udemy Credential",
     description:
       "A practical course certificate where I learned more about PHP, MySQL, CRUD features, and simple CMS-style development.",
-    image: "/Certificates/PHP.jpg",
+    image: withBasePath("/Certificates/PHP.jpg"),
     tags: ["PHP", "MySQL", "CMS"],
     details: [
       { label: "Issuer", value: "Udemy" },
@@ -48,11 +49,11 @@ const certificates = [
     ],
     primaryAction: {
       label: "Open Certificate",
-      href: "/Certificates/IMcert.pdf",
+      href: withBasePath("/Certificates/IMcert.pdf"),
     },
     secondaryAction: {
       label: "View PDF",
-      href: "/Certificates/IMcert.pdf",
+      href: withBasePath("/Certificates/IMcert.pdf"),
     },
   },
 ];

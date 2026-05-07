@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FolderKanban } from "lucide-react";
 import AnimatedShowcase from "./ui/animated-showcase";
+import { withBasePath } from "../lib/base-path";
 
 const projects = [
   {
@@ -14,7 +15,7 @@ const projects = [
     subtitle: "Next.js, TypeScript, Supabase",
     description:
       "A project I built to help users upload code and get clearer explanations, while also helping me practice full-stack features and AI integration.",
-    image: "/Projects/code-explainer-workspace.svg",
+    image: withBasePath("/Projects/code-explainer-workspace.svg"),
     tags: ["Next.js", "TypeScript", "Code Analysis"],
     details: [
       { label: "Focus", value: "Easy-to-read code explanations" },
@@ -39,7 +40,7 @@ const projects = [
     subtitle: "Booking Platform, Responsive UX",
     description:
       "A booking website project focused on making the salon experience easier to use, especially for mobile users and first-time visitors.",
-    image: "/Projects/Guys and Gals proj.png",
+    image: withBasePath("/Projects/Guys and Gals proj.png"),
     tags: ["Next.js", "Scheduling", "UI/UX"],
     details: [
       { label: "Goal", value: "Make booking simpler and clearer" },
@@ -64,7 +65,7 @@ const projects = [
     subtitle: "AI Monitoring, Computer Vision Concept",
     description:
       "A concept project exploring how head-position tracking could help support online assessment monitoring and exam review.",
-    image: "/Projects/Sentra.png",
+    image: withBasePath("/Projects/Sentra.png"),
     tags: ["AI", "Monitoring System"],
     details: [
       { label: "Signal", value: "Head orientation tracking" },

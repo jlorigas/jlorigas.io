@@ -17,6 +17,8 @@ import CyberDefense from "./CyberDefense";
 import SpotlightCard from "./ui/spotlight-card";
 import useSafeReducedMotion from "../hooks/use-safe-reduced-motion";
 import { SectionReveal, StaggerItem, StaggerReveal } from "./ui/section-reveal";
+import profileImage from "../../public/profile.png";
+import { withBasePath } from "../lib/base-path";
 
 const floatingBadges = [
   "Student developer",
@@ -182,7 +184,7 @@ export default function Hero() {
               <StaggerItem>
                 <div className="relative z-40 mt-12 flex flex-wrap items-center gap-5">
                   <a
-                    href="/Resume.pdf"
+                    href={withBasePath("/Resume.pdf")}
                     className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-blue-600 px-8 py-4 font-bold text-white shadow-[0_0_30px_rgba(37,99,235,0.3)] transition-all hover:shadow-[0_0_40px_rgba(37,99,235,0.5)]"
                   >
                     <span className="relative z-10 flex items-center gap-2">
@@ -255,7 +257,7 @@ export default function Hero() {
                   <div className="absolute inset-0 z-0 rounded-[1.5rem] bg-[#0a0a0a]/80" />
                   <div className="relative z-10 h-full w-full overflow-hidden rounded-[1.25rem] bg-gradient-to-br from-cyan-500/20 to-purple-500/20">
                     <Image
-                      src="public/profile.png"
+                      src={profileImage}
                       alt="Jomar Lorigas"
                       fill
                       priority
