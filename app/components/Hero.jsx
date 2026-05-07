@@ -62,7 +62,7 @@ export default function Hero() {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-transparent px-6 pt-24">
       <BackgroundLines className="flex min-h-screen w-full items-center justify-center">
         <div className="pointer-events-none absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-10" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_70%,transparent_110%)]" />
           <motion.div
             className="absolute left-[-10%] top-[-12%] h-[600px] w-[600px] rounded-full bg-blue-600/10 blur-[120px]"
             animate={shouldReduceMotion ? undefined : { x: [0, 40, 0], y: [0, 30, 0] }}
@@ -144,7 +144,7 @@ export default function Hero() {
                       {isGameActive ? "SYSTEM_BREACH_DETECTED" : "My Skills Step by Step"}
                     </span>
 
-                    <span className="absolute -top-6 left-0 whitespace-nowrap rounded border border-red-500/30 bg-black/90 px-2 py-0.5 font-mono text-[10px] text-red-500 opacity-0 transition-opacity pointer-events-none group-hover:opacity-100">
+                    <span className="absolute -top-6 left-0 whitespace-nowrap rounded border border-red-500/30 bg-black/90 px-2 py-0.5 font-mono text-[10px] text-red-500 opacity-0 transition-opacity group-hover:opacity-100">
                       WARNING CLICK_TO_INIT_DEFENSE
                     </span>
                   </span>
@@ -183,7 +183,7 @@ export default function Hero() {
                 <div className="relative z-40 mt-12 flex flex-wrap items-center gap-5">
                   <a
                     href="/Resume.pdf"
-                    className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-blue-600 px-8 py-4 font-bold text-white shadow-[0_0_30px_rgba(37,99,235,0.3)] transition-all hover:bg-blue-500"
+                    className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-blue-600 px-8 py-4 font-bold text-white shadow-[0_0_30px_rgba(37,99,235,0.3)] transition-all hover:shadow-[0_0_40px_rgba(37,99,235,0.5)]"
                   >
                     <span className="relative z-10 flex items-center gap-2">
                       <Terminal size={18} /> Initialize CV
@@ -194,7 +194,7 @@ export default function Hero() {
 
                   <div className="flex gap-3">
                     <a
-                      href="https://github.com"
+                      href="https://github.com/jomarlopezlorigas-arch"
                       target="_blank"
                       rel="noreferrer"
                       className="rounded-full border border-white/10 bg-white/5 p-4 transition-all hover:border-blue-500/50 hover:text-blue-400"
@@ -202,7 +202,7 @@ export default function Hero() {
                       <Github size={20} />
                     </a>
                     <a
-                      href="mailto:your@email.com"
+                      href="mailto:jomarlopezlorigas@gmail.com"
                       className="rounded-full border border-white/10 bg-white/5 p-4 transition-all hover:border-blue-500/50 hover:text-blue-400"
                     >
                       <Mail size={20} />
@@ -222,7 +222,7 @@ export default function Hero() {
                     ? undefined
                     : { repeat: Infinity, duration: 4.6, ease: "easeInOut" }
                 }
-                className="absolute -left-6 top-10 hidden rounded-2xl border border-cyan-400/15 bg-cyan-400/10 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.24em] text-cyan-100 shadow-[0_18px_50px_rgba(8,145,178,0.2)] lg:block"
+                className="absolute -left-6 top-10 hidden rounded-2xl border border-cyan-400/15 bg-cyan-400/10 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.24em] text-cyan-100 shadow-[0_0_20px_rgba(34,211,238,0.2)] md:block"
               >
                 <Sparkles size={14} className="mb-2" />
                 Learning by building
@@ -235,7 +235,7 @@ export default function Hero() {
                     ? undefined
                     : { repeat: Infinity, duration: 4.2, ease: "easeInOut", delay: 0.5 }
                 }
-                className="absolute -right-4 bottom-10 hidden rounded-2xl border border-fuchsia-400/15 bg-fuchsia-400/10 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.24em] text-fuchsia-100 shadow-[0_18px_50px_rgba(168,85,247,0.2)] lg:block"
+                className="absolute -right-4 bottom-10 hidden rounded-2xl border border-fuchsia-400/15 bg-fuchsia-400/10 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.24em] text-fuchsia-100 shadow-[0_0_20px_rgba(217,70,239,0.2)] md:block"
               >
                 Growing one project at a time
               </motion.div>
@@ -253,12 +253,13 @@ export default function Hero() {
                   className="relative aspect-square w-full overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-blue-500/30 to-purple-500/30 p-1 backdrop-blur-sm"
                 >
                   <div className="absolute inset-0 z-0 rounded-[1.5rem] bg-[#0a0a0a]/80" />
-                  <Image
-                    src="/profile.png"
-                    alt="Jomar Lorigas"
-                    fill
-                    className="relative z-10 rounded-[1.25rem] object-cover opacity-90 transition-all duration-500 hover:opacity-100"
-                  />
+                  <div className="relative z-10 h-full w-full rounded-[1.25rem] bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="mb-4 text-6xl">👨‍💻</div>
+                      <p className="text-gray-300 font-mono text-sm">Jomar Lorigas</p>
+                      <p className="text-gray-400 font-mono text-xs mt-2">IT Graduate & Developer</p>
+                    </div>
+                  </div>
                 </div>
               </SpotlightCard>
             </div>
