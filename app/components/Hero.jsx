@@ -253,12 +253,16 @@ export default function Hero() {
                   className="relative aspect-square w-full overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-blue-500/30 to-purple-500/30 p-1 backdrop-blur-sm"
                 >
                   <div className="absolute inset-0 z-0 rounded-[1.5rem] bg-[#0a0a0a]/80" />
-                  <div className="relative z-10 h-full w-full rounded-[1.25rem] bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="mb-4 text-6xl">👨‍💻</div>
-                      <p className="text-gray-300 font-mono text-sm">Jomar Lorigas</p>
-                      <p className="text-gray-400 font-mono text-xs mt-2">IT Graduate & Developer</p>
-                    </div>
+                  <div className="relative z-10 h-full w-full overflow-hidden rounded-[1.25rem] bg-gradient-to-br from-cyan-500/20 to-purple-500/20">
+                    <Image
+                      src="/profile.png"
+                      alt="Jomar Lorigas"
+                      fill
+                      priority
+                      sizes="(min-width: 1024px) 420px, 90vw"
+                      className="object-cover"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
                   </div>
                 </div>
               </SpotlightCard>
