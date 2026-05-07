@@ -20,11 +20,8 @@ const timeZones: TimeZone[] = [
 function DigitalClock() {
   const [times, setTimes] = useState<{ [key: string]: string }>({})
   const [localTime, setLocalTime] = useState('')
-  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
-
     const updateTimes = () => {
       const newTimes: { [key: string]: string } = {}
 
@@ -54,8 +51,6 @@ function DigitalClock() {
     const interval = setInterval(updateTimes, 1000)
     return () => clearInterval(interval)
   }, [])
-
-  if (!mounted) return null
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black p-8">
