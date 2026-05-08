@@ -18,7 +18,8 @@ import { SectionReveal } from "./ui/section-reveal";
 
 const EMAIL_ADDRESS = "jomarlopezlorigas@gmail.com";
 const EMAILJS_ENDPOINT = "https://api.emailjs.com/api/v1.0/email/send";
-const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
+const EMAILJS_PUBLIC_KEY =
+  process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "Cxo8ShMswU_JhFOKe";
 const EMAILJS_SERVICE_ID = 
   process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_fb31ivp";
 const EMAILJS_TEMPLATE_ID =
