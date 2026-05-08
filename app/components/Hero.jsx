@@ -7,11 +7,17 @@ import Image from "next/image";
 import { ArrowRight, Code2, Layers3, Sparkles, Terminal, Zap } from "lucide-react";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import {
+  SiCss3,
   SiFigma,
   SiNextdotjs,
   SiFirebase,
+  SiHtml5,
+  SiJavascript,
+  SiPhp,
+  SiPython,
   SiTailwindcss,
   SiPostgresql,
+  SiTypescript,
 } from "react-icons/si";
 import BackgroundLines from "./ui/background-lines";
 import CyberDefense from "./CyberDefense";
@@ -20,19 +26,27 @@ import useSafeReducedMotion from "../hooks/use-safe-reduced-motion";
 import { SectionReveal, StaggerItem, StaggerReveal } from "./ui/section-reveal";
 import profileImage from "../../public/profile.png";
 
-const techStack = [
+const codeStack = [
+  { name: "JavaScript", icon: <SiJavascript className="text-[#f7df1e]" /> },
+  { name: "TypeScript", icon: <SiTypescript className="text-[#3178c6]" /> },
+  { name: "Python", icon: <SiPython className="text-[#ffd43b]" /> },
+  { name: "PHP", icon: <SiPhp className="text-[#aeb2d5]" /> },
+  { name: "HTML", icon: <SiHtml5 className="text-[#f97316]" /> },
+  { name: "CSS", icon: <SiCss3 className="text-[#38bdf8]" /> },
+  { name: "React", icon: <FaReact className="text-[#61dafb]" /> },
   { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
-  { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
-  { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-400" /> },
-  { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
-  { name: "Tailwind", icon: <SiTailwindcss className="text-cyan-400" /> },
-  { name: "React Native", icon: <FaReact className="text-blue-400" /> },
+  { name: "Node.js", icon: <FaNodeJs className="text-[#63e27d]" /> },
+  { name: "PostgreSQL", icon: <SiPostgresql className="text-[#60a5fa]" /> },
+  { name: "Firebase", icon: <SiFirebase className="text-[#fbbf24]" /> },
+  { name: "Tailwind", icon: <SiTailwindcss className="text-[#22d3ee]" /> },
 ];
+
+const marqueeStack = [...codeStack, ...codeStack];
 
 const signalCards = [
   {
     label: "Current Focus",
-    value: "Learning Rest APIs and databases",
+    value: "Learning Rest APIs and Databases",
     icon: <Layers3 size={16} />,
   },
   {
@@ -190,21 +204,44 @@ export default function Hero() {
               </StaggerItem>
 
               <StaggerItem>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  {techStack.map((tech) => (
+                <div className="mt-9 overflow-hidden rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-4 shadow-[0_18px_60px_rgba(0,0,0,0.22)]">
+                  <div className="mb-4 flex items-center justify-between gap-4">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-cyan-200/80">
+                      Code Languages + Tools
+                    </p>
+                    <p className="text-[11px] text-gray-500">
+                      Scrolls through the stack I build with
+                    </p>
+                  </div>
+
+                  <div className="relative overflow-hidden">
                     <motion.div
-                      key={tech.name}
-                      whileHover={{ y: -4 }}
-                      className="group flex cursor-default items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 transition-all hover:border-blue-500/50 hover:bg-white/10"
+                      animate={shouldReduceMotion ? undefined : { x: ["0%", "-50%"] }}
+                      transition={
+                        shouldReduceMotion
+                          ? undefined
+                          : { repeat: Infinity, duration: 22, ease: "linear" }
+                      }
+                      className="flex w-max gap-3"
                     >
-                      <span className="text-lg opacity-70 transition-opacity group-hover:opacity-100">
-                        {tech.icon}
-                      </span>
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-gray-400 group-hover:text-blue-200">
-                        {tech.name}
-                      </span>
+                      {marqueeStack.map((tech, index) => (
+                        <div
+                          key={`${tech.name}-${index}`}
+                          className="group flex min-w-max items-center gap-3 rounded-full border border-white/10 bg-[#0b1220]/80 px-4 py-3 backdrop-blur-md transition-colors hover:border-cyan-300/30 hover:bg-[#111a2a]"
+                        >
+                          <span className="text-xl opacity-90 transition-transform duration-300 group-hover:scale-110">
+                            {tech.icon}
+                          </span>
+                          <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gray-300">
+                            {tech.name}
+                          </span>
+                        </div>
+                      ))}
                     </motion.div>
-                  ))}
+
+                    <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#060b13] to-transparent" />
+                    <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#060b13] to-transparent" />
+                  </div>
                 </div>
               </StaggerItem>
             </StaggerReveal>
@@ -247,28 +284,6 @@ export default function Hero() {
                           className="object-cover"
                         />
                         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#02050a] via-transparent to-transparent" />
-                      </div>
-                    </div>
-
-                    <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                      <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.03] p-4">
-                        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-cyan-200/80">
-                          Workflow
-                        </p>
-                        <p className="mt-3 text-sm leading-6 text-gray-300">
-                          Designing sections, refining motion, and turning ideas
-                          into real portfolio pages.
-                        </p>
-                      </div>
-
-                      <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.03] p-4">
-                        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-cyan-200/80">
-                          Learning Mode
-                          </p>
-                        <p className="mt-3 text-sm leading-6 text-gray-300">
-                          Improving component structure, frontend polish, and
-                          full-stack confidence step by step.
-                        </p>
                       </div>
                     </div>
                   </div>
