@@ -20,6 +20,29 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Contact Form Email Setup
+
+The contact overlay sends email with EmailJS so it still works with this project's static `next export` setup.
+
+Add these variables to your local `.env.local` and your deployment environment:
+
+```bash
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+The project already defaults to:
+
+- `service_fb31ivp` for the EmailJS service ID
+- `template_sdxop6h` for the EmailJS template ID
+
+In your EmailJS template, use these template variables:
+
+- `to_email`
+- `from_name`
+- `from_email`
+- `subject`
+- `message`
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

@@ -32,7 +32,7 @@ const techStack = [
 const signalCards = [
   {
     label: "Current Focus",
-    value: "Portfolio systems",
+    value: "Learning Rest APIs and databases",
     icon: <Layers3 size={16} />,
   },
   {
@@ -116,11 +116,11 @@ export default function Hero() {
               <StaggerItem>
                 <div className="max-w-4xl">
                   <h1 className="relative z-30 text-5xl font-black leading-[0.88] tracking-tight text-white md:text-7xl xl:text-[5.2rem]">
-                    Interface-first
+                  Crafting clean code
                     <span className="block bg-gradient-to-r from-cyan-200 via-blue-300 to-fuchsia-300 bg-clip-text text-transparent">
-                      projects for a growing
+                      across frontend, backend, 
                     </span>
-                    <span className="block text-white/92">frontend journey.</span>
+                    <span className="block text-white/92">and beyond.</span>
                   </h1>
 
                   <p className="mt-7 max-w-2xl text-lg leading-8 text-gray-300 md:text-xl">
