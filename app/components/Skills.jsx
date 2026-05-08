@@ -114,113 +114,127 @@ const floatingLanguages = [
     name: "PHP",
     icon: SiPhp,
     className: "text-[#c7d2fe]",
-    containerClassName:
-      "left-[10%] top-24 rotate-[4deg] md:left-[14%] md:top-20",
-    animationClassName: "skills-float",
+    radius: 370,
+    startAngle: 212,
+    duration: "26s",
+    spinClassName: "skills-orbit",
   },
   {
     name: "JavaScript",
     icon: SiJavascript,
     className: "text-[#f7df1e]",
-    containerClassName:
-      "right-[10%] top-40 rotate-[-6deg] md:right-[16%] md:top-32",
-    animationClassName: "skills-float-delayed",
+    radius: 435,
+    startAngle: 322,
+    duration: "31s",
+    spinClassName: "skills-orbit-reverse",
   },
   {
     name: "TypeScript",
     icon: SiTypescript,
     className: "text-[#60a5fa]",
-    containerClassName:
-      "left-[7%] bottom-32 rotate-[-8deg] md:left-[12%] md:bottom-28",
-    animationClassName: "skills-float-slow",
+    radius: 420,
+    startAngle: 164,
+    duration: "34s",
+    spinClassName: "skills-orbit",
   },
   {
     name: "Python",
     icon: SiPython,
     className: "text-[#fde68a]",
-    containerClassName:
-      "right-[8%] bottom-24 rotate-[7deg] md:right-[14%] md:bottom-20",
-    animationClassName: "skills-float-delayed",
+    radius: 470,
+    startAngle: 118,
+    duration: "36s",
+    spinClassName: "skills-orbit-reverse",
   },
   {
     name: "HTML",
     icon: SiHtml5,
     className: "text-[#fb923c]",
-    containerClassName:
-      "left-[18%] top-[48%] rotate-[8deg] md:left-[20%] md:top-[42%]",
-    animationClassName: "skills-float",
+    radius: 285,
+    startAngle: 206,
+    duration: "20s",
+    spinClassName: "skills-orbit",
   },
   {
     name: "CSS",
     icon: SiCss3,
     className: "text-[#38bdf8]",
-    containerClassName:
-      "right-[18%] top-[54%] rotate-[-7deg] md:right-[20%] md:top-[48%]",
-    animationClassName: "skills-float-slow",
+    radius: 310,
+    startAngle: 32,
+    duration: "23s",
+    spinClassName: "skills-orbit-reverse",
   },
   {
     name: "React",
     icon: FaReact,
     className: "text-[#61dafb]",
-    containerClassName:
-      "left-[26%] top-[18%] rotate-[-5deg] md:left-[30%] md:top-[16%]",
-    animationClassName: "skills-float-delayed",
+    radius: 335,
+    startAngle: 78,
+    duration: "24s",
+    spinClassName: "skills-orbit",
   },
   {
     name: "Ruby",
     icon: SiRuby,
     className: "text-[#f87171]",
-    containerClassName:
-      "right-[26%] top-[18%] rotate-[6deg] md:right-[30%] md:top-[16%]",
-    animationClassName: "skills-float",
+    radius: 392,
+    startAngle: 24,
+    duration: "29s",
+    spinClassName: "skills-orbit-reverse",
   },
   {
     name: "Node.js",
     icon: SiNodedotjs,
     className: "text-[#86efac]",
-    containerClassName:
-      "left-[8%] top-[66%] rotate-[5deg] md:left-[12%] md:top-[62%]",
-    animationClassName: "skills-float-slow",
+    radius: 360,
+    startAngle: 268,
+    duration: "27s",
+    spinClassName: "skills-orbit",
   },
   {
     name: "Next.js",
     icon: SiNextdotjs,
     className: "text-white",
-    containerClassName:
-      "right-[10%] top-[66%] rotate-[-5deg] md:right-[12%] md:top-[62%]",
-    animationClassName: "skills-float-delayed",
+    radius: 255,
+    startAngle: 356,
+    duration: "19s",
+    spinClassName: "skills-orbit-reverse",
   },
   {
     name: "REST API",
     icon: Link,
     className: "text-cyan-200",
-    containerClassName:
-      "left-[30%] bottom-[18%] rotate-[7deg] md:left-[34%] md:bottom-[14%]",
-    animationClassName: "skills-float",
+    radius: 285,
+    startAngle: 132,
+    duration: "22s",
+    spinClassName: "skills-orbit",
   },
   {
     name: "Firebase",
     icon: SiFirebase,
     className: "text-[#fbbf24]",
-    containerClassName:
-      "right-[30%] bottom-[18%] rotate-[-6deg] md:right-[34%] md:bottom-[14%]",
-    animationClassName: "skills-float-slow",
+    radius: 315,
+    startAngle: 188,
+    duration: "25s",
+    spinClassName: "skills-orbit-reverse",
   },
   {
     name: "PostgreSQL",
     icon: SiPostgresql,
     className: "text-[#93c5fd]",
-    containerClassName:
-      "left-[42%] top-[8%] rotate-[2deg] md:left-[44%] md:top-[10%]",
-    animationClassName: "skills-float-delayed",
+    radius: 445,
+    startAngle: 286,
+    duration: "33s",
+    spinClassName: "skills-orbit",
   },
   {
     name: "Tailwind",
     icon: SiTailwindcss,
     className: "text-[#67e8f9]",
-    containerClassName:
-      "right-[42%] top-[8%] rotate-[-2deg] md:right-[44%] md:top-[10%]",
-    animationClassName: "skills-float",
+    radius: 245,
+    startAngle: 104,
+    duration: "18s",
+    spinClassName: "skills-orbit-reverse",
   },
 ];
 
@@ -260,27 +274,34 @@ function MatrixBackdrop() {
   return (
     <>
       <style jsx global>{`
-        @keyframes skills-float {
+        @keyframes skills-orbit {
           from {
-            transform: translate3d(0, 0, 0);
+            transform: rotate(var(--orbit-start, 0deg));
           }
           to {
-            transform: translate3d(0, 10px, 0);
+            transform: rotate(calc(var(--orbit-start, 0deg) + 360deg));
           }
         }
 
-        .skills-float {
-          animation: skills-float 6s ease-in-out infinite alternate;
+        @keyframes skills-icon-bob {
+          from {
+            transform: translateY(0) scale(1) rotate(0deg);
+          }
+          to {
+            transform: translateY(-5px) scale(1.08) rotate(8deg);
+          }
         }
 
-        .skills-float-delayed {
-          animation: skills-float 7.5s ease-in-out infinite alternate;
-          animation-delay: 0.8s;
+        .skills-orbit {
+          animation: skills-orbit var(--orbit-duration, 24s) linear infinite;
         }
 
-        .skills-float-slow {
-          animation: skills-float 9s ease-in-out infinite alternate;
-          animation-delay: 0.3s;
+        .skills-orbit-reverse {
+          animation: skills-orbit var(--orbit-duration, 24s) linear infinite reverse;
+        }
+
+        .skills-icon-bob {
+          animation: skills-icon-bob 3.8s ease-in-out infinite alternate;
         }
       `}</style>
 
@@ -294,27 +315,45 @@ function MatrixBackdrop() {
         <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#04111a] to-transparent" />
         <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#03050a] to-transparent" />
 
-        {floatingLanguages.map((language) => {
+        <div className="absolute inset-0 hidden sm:block">
+          {floatingLanguages.map((language) => {
           const Icon = language.icon;
 
           return (
             <div
               key={language.name}
               className={cn(
-                "absolute z-[1] hidden rounded-[1.25rem] border border-white/12 bg-[#09111d]/82 px-4 py-3 shadow-[0_20px_60px_rgba(0,0,0,0.34)] backdrop-blur-md sm:flex sm:items-center sm:gap-3",
-                language.containerClassName,
-                shouldReduceMotion ? "" : language.animationClassName
+                "absolute left-1/2 top-[58%] z-[1]",
+                shouldReduceMotion ? "" : language.spinClassName
               )}
+              style={{
+                "--orbit-start": `${language.startAngle}deg`,
+                "--orbit-duration": language.duration,
+              }}
             >
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-black/30">
-                <Icon className={cn("text-[18px]", language.className)} />
-              </span>
-              <span className="font-mono text-xs uppercase tracking-[0.34em] text-white/78">
-                {language.name}
-              </span>
+              <div
+                className="absolute left-0 top-0"
+                style={{ transform: `translateX(${language.radius}px) translateY(-50%)` }}
+              >
+                <div className="flex -translate-x-1/2 -translate-y-1/2 items-center gap-3 rounded-[1.25rem] border border-white/12 bg-[#09111d]/82 px-4 py-3 shadow-[0_20px_60px_rgba(0,0,0,0.34)] backdrop-blur-md">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-black/30">
+                    <Icon
+                      className={cn(
+                        "text-[18px]",
+                        language.className,
+                        shouldReduceMotion ? "" : "skills-icon-bob"
+                      )}
+                    />
+                  </span>
+                  <span className="font-mono text-xs uppercase tracking-[0.34em] text-white/78">
+                    {language.name}
+                  </span>
+                </div>
+              </div>
             </div>
           );
-        })}
+          })}
+        </div>
 
         <div className="absolute left-1/2 top-[58%] h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/6" />
         <div className="absolute left-1/2 top-[58%] h-[25rem] w-[25rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-300/8" />
