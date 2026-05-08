@@ -4,10 +4,16 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Link, Zap } from "lucide-react";
 import { FaReact } from "react-icons/fa";
 import {
+  SiCss3,
+  SiJavascript,
   SiFirebase,
+  SiHtml5,
   SiNextdotjs,
   SiNodedotjs,
+  SiPhp,
   SiPostgresql,
+  SiPython,
+  SiRuby,
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
@@ -103,6 +109,121 @@ const timelineData = [
   },
 ];
 
+const floatingLanguages = [
+  {
+    name: "PHP",
+    icon: SiPhp,
+    className: "text-[#c7d2fe]",
+    containerClassName:
+      "left-[10%] top-24 rotate-[4deg] md:left-[14%] md:top-20",
+    animationClassName: "skills-float",
+  },
+  {
+    name: "JavaScript",
+    icon: SiJavascript,
+    className: "text-[#f7df1e]",
+    containerClassName:
+      "right-[10%] top-40 rotate-[-6deg] md:right-[16%] md:top-32",
+    animationClassName: "skills-float-delayed",
+  },
+  {
+    name: "TypeScript",
+    icon: SiTypescript,
+    className: "text-[#60a5fa]",
+    containerClassName:
+      "left-[7%] bottom-32 rotate-[-8deg] md:left-[12%] md:bottom-28",
+    animationClassName: "skills-float-slow",
+  },
+  {
+    name: "Python",
+    icon: SiPython,
+    className: "text-[#fde68a]",
+    containerClassName:
+      "right-[8%] bottom-24 rotate-[7deg] md:right-[14%] md:bottom-20",
+    animationClassName: "skills-float-delayed",
+  },
+  {
+    name: "HTML",
+    icon: SiHtml5,
+    className: "text-[#fb923c]",
+    containerClassName:
+      "left-[18%] top-[48%] rotate-[8deg] md:left-[20%] md:top-[42%]",
+    animationClassName: "skills-float",
+  },
+  {
+    name: "CSS",
+    icon: SiCss3,
+    className: "text-[#38bdf8]",
+    containerClassName:
+      "right-[18%] top-[54%] rotate-[-7deg] md:right-[20%] md:top-[48%]",
+    animationClassName: "skills-float-slow",
+  },
+  {
+    name: "React",
+    icon: FaReact,
+    className: "text-[#61dafb]",
+    containerClassName:
+      "left-[26%] top-[18%] rotate-[-5deg] md:left-[30%] md:top-[16%]",
+    animationClassName: "skills-float-delayed",
+  },
+  {
+    name: "Ruby",
+    icon: SiRuby,
+    className: "text-[#f87171]",
+    containerClassName:
+      "right-[26%] top-[18%] rotate-[6deg] md:right-[30%] md:top-[16%]",
+    animationClassName: "skills-float",
+  },
+  {
+    name: "Node.js",
+    icon: SiNodedotjs,
+    className: "text-[#86efac]",
+    containerClassName:
+      "left-[8%] top-[66%] rotate-[5deg] md:left-[12%] md:top-[62%]",
+    animationClassName: "skills-float-slow",
+  },
+  {
+    name: "Next.js",
+    icon: SiNextdotjs,
+    className: "text-white",
+    containerClassName:
+      "right-[10%] top-[66%] rotate-[-5deg] md:right-[12%] md:top-[62%]",
+    animationClassName: "skills-float-delayed",
+  },
+  {
+    name: "REST API",
+    icon: Link,
+    className: "text-cyan-200",
+    containerClassName:
+      "left-[30%] bottom-[18%] rotate-[7deg] md:left-[34%] md:bottom-[14%]",
+    animationClassName: "skills-float",
+  },
+  {
+    name: "Firebase",
+    icon: SiFirebase,
+    className: "text-[#fbbf24]",
+    containerClassName:
+      "right-[30%] bottom-[18%] rotate-[-6deg] md:right-[34%] md:bottom-[14%]",
+    animationClassName: "skills-float-slow",
+  },
+  {
+    name: "PostgreSQL",
+    icon: SiPostgresql,
+    className: "text-[#93c5fd]",
+    containerClassName:
+      "left-[42%] top-[8%] rotate-[2deg] md:left-[44%] md:top-[10%]",
+    animationClassName: "skills-float-delayed",
+  },
+  {
+    name: "Tailwind",
+    icon: SiTailwindcss,
+    className: "text-[#67e8f9]",
+    containerClassName:
+      "right-[42%] top-[8%] rotate-[-2deg] md:right-[44%] md:top-[10%]",
+    animationClassName: "skills-float",
+  },
+];
+
 function cn(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -151,6 +272,16 @@ function MatrixBackdrop() {
         .skills-float {
           animation: skills-float 6s ease-in-out infinite alternate;
         }
+
+        .skills-float-delayed {
+          animation: skills-float 7.5s ease-in-out infinite alternate;
+          animation-delay: 0.8s;
+        }
+
+        .skills-float-slow {
+          animation: skills-float 9s ease-in-out infinite alternate;
+          animation-delay: 0.3s;
+        }
       `}</style>
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -163,17 +294,27 @@ function MatrixBackdrop() {
         <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#04111a] to-transparent" />
         <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#03050a] to-transparent" />
 
-        <div
-          className={cn(
-            "absolute left-[16%] top-16 rounded-[1.15rem] border border-white/10 bg-[#0a1220]/75 px-7 py-3 shadow-[0_18px_50px_rgba(0,0,0,0.28)] backdrop-blur-md",
-            shouldReduceMotion ? "" : "skills-float"
-          )}
-          style={{ transform: "rotate(2deg)" }}
-        >
-          <span className="font-mono text-sm uppercase tracking-[0.3em] text-white/70">
-            PHP
-          </span>
-        </div>
+        {floatingLanguages.map((language) => {
+          const Icon = language.icon;
+
+          return (
+            <div
+              key={language.name}
+              className={cn(
+                "absolute z-[1] hidden rounded-[1.25rem] border border-white/12 bg-[#09111d]/82 px-4 py-3 shadow-[0_20px_60px_rgba(0,0,0,0.34)] backdrop-blur-md sm:flex sm:items-center sm:gap-3",
+                language.containerClassName,
+                shouldReduceMotion ? "" : language.animationClassName
+              )}
+            >
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-black/30">
+                <Icon className={cn("text-[18px]", language.className)} />
+              </span>
+              <span className="font-mono text-xs uppercase tracking-[0.34em] text-white/78">
+                {language.name}
+              </span>
+            </div>
+          );
+        })}
 
         <div className="absolute left-1/2 top-[58%] h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/6" />
         <div className="absolute left-1/2 top-[58%] h-[25rem] w-[25rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-300/8" />
