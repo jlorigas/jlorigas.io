@@ -4,15 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Link, Zap } from "lucide-react";
 import { FaReact } from "react-icons/fa";
 import {
-  SiCss3,
   SiFirebase,
-  SiHtml5,
-  SiJavascript,
   SiNextdotjs,
   SiNodedotjs,
-  SiPhp,
   SiPostgresql,
-  SiPython,
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
@@ -108,46 +103,6 @@ const timelineData = [
   },
 ];
 
-const languageBackdropRings = [
-  {
-    size: 960,
-    durationClass: "skills-spin-slow",
-    borderClassName: "border-cyan-300/8",
-    icons: [
-      { name: "JavaScript", icon: SiJavascript, className: "text-[#f7df1e]" },
-      { name: "TypeScript", icon: SiTypescript, className: "text-[#3178c6]" },
-      { name: "Python", icon: SiPython, className: "text-[#ffd43b]" },
-      { name: "PHP", icon: SiPhp, className: "text-[#c7d2fe]" },
-      { name: "HTML", icon: SiHtml5, className: "text-[#fb923c]" },
-      { name: "CSS", icon: SiCss3, className: "text-[#38bdf8]" },
-    ],
-  },
-  {
-    size: 680,
-    durationClass: "skills-spin-slow-reverse",
-    borderClassName: "border-fuchsia-300/8",
-    icons: [
-      { name: "TypeScript", icon: SiTypescript, className: "text-[#60a5fa]" },
-      { name: "Python", icon: SiPython, className: "text-[#fde68a]" },
-      { name: "JavaScript", icon: SiJavascript, className: "text-[#facc15]" },
-      { name: "HTML", icon: SiHtml5, className: "text-[#f97316]" },
-      { name: "PHP", icon: SiPhp, className: "text-[#a5b4fc]" },
-      { name: "CSS", icon: SiCss3, className: "text-[#7dd3fc]" },
-    ],
-  },
-  {
-    size: 420,
-    durationClass: "skills-spin-slow",
-    borderClassName: "border-white/7",
-    icons: [
-      { name: "Python", icon: SiPython, className: "text-[#fde047]" },
-      { name: "JavaScript", icon: SiJavascript, className: "text-[#fde047]" },
-      { name: "TypeScript", icon: SiTypescript, className: "text-[#38bdf8]" },
-      { name: "PHP", icon: SiPhp, className: "text-[#c4b5fd]" },
-    ],
-  },
-];
-
 function cn(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -178,92 +133,52 @@ function getStatusLabel(status) {
   }
 }
 
-function CodeLanguageBackdrop() {
+function MatrixBackdrop() {
   const shouldReduceMotion = useSafeReducedMotion();
 
   return (
     <>
       <style jsx global>{`
-        @keyframes skills-spin-slow {
+        @keyframes skills-float {
           from {
-            transform: rotate(0deg);
+            transform: translate3d(0, 0, 0);
           }
           to {
-            transform: rotate(360deg);
+            transform: translate3d(0, 10px, 0);
           }
         }
 
-        @keyframes skills-spin-slow-reverse {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(-360deg);
-          }
-        }
-
-        .skills-spin-slow {
-          animation: skills-spin-slow 64s linear infinite;
-        }
-
-        .skills-spin-slow-reverse {
-          animation: skills-spin-slow-reverse 58s linear infinite;
+        .skills-float {
+          animation: skills-float 6s ease-in-out infinite alternate;
         }
       `}</style>
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(56,189,248,0.16),transparent_22%),radial-gradient(circle_at_22%_24%,rgba(59,130,246,0.1),transparent_18%),radial-gradient(circle_at_80%_28%,rgba(217,70,239,0.1),transparent_18%)]" />
+        <div className="absolute inset-0 bg-[#04070d]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_6%,rgba(34,211,238,0.16),transparent_20%),radial-gradient(circle_at_52%_18%,rgba(56,189,248,0.12),transparent_18%),radial-gradient(circle_at_72%_10%,rgba(217,70,239,0.12),transparent_18%),radial-gradient(circle_at_100%_100%,rgba(255,255,255,0.05),transparent_26%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.16)_1px,transparent_1.5px)] bg-[size:22px_22px] opacity-[0.28]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:110px_110px] opacity-35" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#05111a] via-[#05111a]/70 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#03050a] via-[#03050a]/85 to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#04111a] to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#03050a] to-transparent" />
 
         <div
-          className="absolute left-1/2 top-[56%] h-[72rem] w-[72rem] -translate-x-1/2 -translate-y-1/2 opacity-70"
-          style={{
-            perspective: "1400px",
-            transform: "translate(-50%, -50%) perspective(1400px) rotateX(72deg)",
-          }}
+          className={cn(
+            "absolute left-[16%] top-16 rounded-[1.15rem] border border-white/10 bg-[#0a1220]/75 px-7 py-3 shadow-[0_18px_50px_rgba(0,0,0,0.28)] backdrop-blur-md",
+            shouldReduceMotion ? "" : "skills-float"
+          )}
+          style={{ transform: "rotate(2deg)" }}
         >
-          {languageBackdropRings.map((ring) => (
-            <div
-              key={ring.size}
-              className="absolute left-1/2 top-1/2"
-              style={{
-                width: `${ring.size}px`,
-                height: `${ring.size}px`,
-                marginLeft: `${ring.size / -2}px`,
-                marginTop: `${ring.size / -2}px`,
-              }}
-            >
-              <div
-                className={cn(
-                  "relative h-full w-full rounded-full border",
-                  ring.borderClassName,
-                  shouldReduceMotion ? "" : ring.durationClass
-                )}
-              >
-                {ring.icons.map((entry, index) => {
-                  const Icon = entry.icon;
-                  const angle = (index / ring.icons.length) * 360;
-
-                  return (
-                    <div
-                      key={`${ring.size}-${entry.name}-${index}`}
-                      className="absolute left-1/2 top-1/2"
-                      style={{ transform: `rotate(${angle}deg) translateY(-${ring.size / 2}px)` }}
-                    >
-                      <div
-                        className="flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-2xl border border-white/10 bg-[#07111f]/72 shadow-[0_10px_30px_rgba(0,0,0,0.24)] backdrop-blur-md"
-                        style={{ transform: `rotate(${-angle}deg)` }}
-                      >
-                        <Icon className={cn("text-[26px]", entry.className)} />
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+          <span className="font-mono text-sm uppercase tracking-[0.3em] text-white/70">
+            PHP
+          </span>
         </div>
 
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,7,16,0.3)_0%,rgba(4,7,16,0.08)_34%,rgba(4,7,16,0.54)_100%)]" />
+        <div className="absolute left-1/2 top-[58%] h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/6" />
+        <div className="absolute left-1/2 top-[58%] h-[25rem] w-[25rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-300/8" />
+        <div className="absolute left-1/2 top-[58%] h-[17rem] w-[17rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/6" />
+        <div className="absolute left-1/2 top-[58%] h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(34,211,238,0.12),transparent_66%)] blur-2xl" />
       </div>
     </>
   );
@@ -540,7 +455,7 @@ export default function TechSkills() {
   return (
     <section id="skills" className="relative mx-auto max-w-7xl overflow-hidden px-6 py-28">
       <SectionDivider className="via-cyan-300/30" />
-      <CodeLanguageBackdrop />
+      <MatrixBackdrop />
 
       <SectionReveal className="relative z-10 mb-12">
         <div className="space-y-5">
