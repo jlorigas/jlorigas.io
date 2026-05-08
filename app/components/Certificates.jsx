@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { ShieldCheck } from "lucide-react";
 import AnimatedShowcase from "./ui/animated-showcase";
 import { withBasePath } from "../lib/base-path";
+import sqlCertificateImage from "../../public/Certificates/sqlcert.jpg";
+import phpCertificateImage from "../../public/Certificates/PHP.jpg";
 
 const certificates = [
   {
@@ -15,7 +17,7 @@ const certificates = [
     subtitle: "Simplilearn Credential",
     description:
       "A beginner-friendly SQL certificate that helped me strengthen my understanding of queries, tables, and relational databases.",
-    image: withBasePath("/Certificates/sqlcert.jpg"),
+    image: sqlCertificateImage,
     tags: ["SQL", "Databases", "Queries"],
     details: [
       { label: "Issuer", value: "Simplilearn" },
@@ -40,7 +42,7 @@ const certificates = [
     subtitle: "Udemy Credential",
     description:
       "A practical course certificate where I learned more about PHP, MySQL, CRUD features, and simple CMS-style development.",
-    image: withBasePath("/Certificates/PHP.jpg"),
+    image: phpCertificateImage,
     tags: ["PHP", "MySQL", "CMS"],
     details: [
       { label: "Issuer", value: "Udemy" },
