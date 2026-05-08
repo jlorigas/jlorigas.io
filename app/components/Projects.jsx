@@ -1,13 +1,41 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { FolderKanban } from "lucide-react";
 import AnimatedShowcase from "./ui/animated-showcase";
+import SectionDivider from "./ui/section-divider";
+import { SectionReveal } from "./ui/section-reveal";
 import codeExplainerImage from "../../public/Projects/code-explainer-workspace.svg";
 import guysAndGalsImage from "../../public/Projects/Guys and Gals proj.png";
 import sentraImage from "../../public/Projects/Sentra.png";
+import profileImage from "../../public/profile.png";
+import { withBasePath } from "../lib/base-path";
 
 const projects = [
+  {
+    id: "PROJECT-04",
+    eyebrow: "PORTFOLIO_SYSTEM",
+    status: "LIVE",
+    statusClassName: "border-green-500/20 bg-green-500/10 text-green-300",
+    title: "Jomar Portfolio Website",
+    subtitle: "Next.js, Tailwind CSS, Framer Motion",
+    description:
+      "My personal portfolio where I showcase projects, certificates, technical skills, and the visual style I am practicing as I grow in frontend and full-stack development.",
+    image: profileImage,
+    tags: ["Portfolio", "UI Motion", "Personal Brand"],
+    details: [
+      { label: "Purpose", value: "Showcase my work and learning journey" },
+      { label: "Focus", value: "Interactive sections and polished presentation" },
+      { label: "Stack", value: "Next.js, Tailwind, and motion-based UI" },
+    ],
+    primaryAction: {
+      label: "Launch Site",
+      href: withBasePath("/"),
+    },
+    secondaryAction: {
+      label: "View Portfolio",
+      href: withBasePath("/"),
+    },
+  },
   {
     id: "PROJECT-03",
     eyebrow: "PHASE_1_ACCESS",
@@ -88,14 +116,12 @@ const projects = [
 export default function Projects() {
   return (
     <section id="projects" className="relative mx-auto max-w-7xl px-6 py-28">
-      <div className="absolute left-1/2 top-0 h-px w-[70%] -translate-x-1/2 bg-gradient-to-r from-transparent via-blue-500/25 to-transparent" />
+      <SectionDivider />
 
-      <motion.div
-        initial={{ opacity: 0, y: 28 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.55 }}
-        viewport={{ once: true, amount: 0.25 }}
+      <SectionReveal
         className="relative z-10 mb-16 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between"
+        y={30}
+        amount={0.24}
       >
         <div className="space-y-3">
           <div className="mb-3 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.35em] text-blue-300">
@@ -115,9 +141,11 @@ export default function Projects() {
           A collection of projects I built to practice my skills, solve real
           problems, and keep learning through hands-on experience.
         </p>
-      </motion.div>
+      </SectionReveal>
 
-      <AnimatedShowcase items={projects} thumbnailGridClassName="md:grid-cols-2 xl:grid-cols-3" />
+      <SectionReveal className="relative z-10" delay={0.06} y={38} scale={0.985} amount={0.14}>
+        <AnimatedShowcase items={projects} thumbnailGridClassName="md:grid-cols-2 xl:grid-cols-3" />
+      </SectionReveal>
     </section>
   );
 }

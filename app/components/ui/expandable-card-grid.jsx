@@ -5,16 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight, X } from "lucide-react";
 import { useOutsideClick } from "../../hooks/use-outside-click";
-
-function cardButtonClasses(action) {
-  const disabled = !action?.href;
-
-  if (disabled) {
-    return "inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-gray-500";
-  }
-
-  return "inline-flex items-center justify-center rounded-full border border-blue-400/20 bg-blue-500/10 px-4 py-2 text-sm font-semibold text-blue-100 transition hover:border-blue-300/40 hover:bg-blue-500/20";
-}
+import { ShinyButton } from "@/components/ui/shiny-button";
 
 function renderContent(content) {
   return typeof content === "function" ? content() : content;
@@ -157,17 +148,18 @@ function ExpandableCardGrid({
                     >
                       {activeItem.primaryAction ? (
                         activeItem.primaryAction.href ? (
-                          <a
-                            href={activeItem.primaryAction.href}
-                            target="_blank"
-                            rel="noreferrer"
-                            className={cardButtonClasses(activeItem.primaryAction)}
-                          >
-                            {activeItem.primaryAction.label}
-                            <ArrowUpRight size={16} className="ml-2" />
-                          </a>
+                          <ShinyButton asChild>
+                            <a
+                              href={activeItem.primaryAction.href}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {activeItem.primaryAction.label}
+                              <ArrowUpRight size={16} />
+                            </a>
+                          </ShinyButton>
                         ) : (
-                          <span className={cardButtonClasses(activeItem.primaryAction)}>
+                          <span className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-gray-500">
                             {activeItem.primaryAction.label}
                           </span>
                         )
@@ -175,15 +167,16 @@ function ExpandableCardGrid({
 
                       {activeItem.secondaryAction ? (
                         activeItem.secondaryAction.href ? (
-                          <a
-                            href={activeItem.secondaryAction.href}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/20 hover:bg-white/10"
-                          >
-                            {activeItem.secondaryAction.label}
-                            <ArrowUpRight size={16} className="ml-2" />
-                          </a>
+                          <ShinyButton asChild className="border-white/10 bg-transparent text-white/85">
+                            <a
+                              href={activeItem.secondaryAction.href}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {activeItem.secondaryAction.label}
+                              <ArrowUpRight size={16} />
+                            </a>
+                          </ShinyButton>
                         ) : (
                           <span className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-gray-500">
                             {activeItem.secondaryAction.label}

@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import VanillaTilt from "vanilla-tilt";
 import Image from "next/image";
 import { Github, Terminal, Activity } from "lucide-react";
+import { ShinyButton } from "@/components/ui/shiny-button";
 
 export default function ProjectCard({
   title,
@@ -59,14 +60,11 @@ export default function ProjectCard({
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]" />
 
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-blue-600/80 opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100">
-          <a
-            href={repo}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-2 rounded-full bg-white px-6 py-2 text-sm font-bold text-black shadow-lg transition hover:scale-105"
-          >
-            <Github size={16} /> Project Link
-          </a>
+          <ShinyButton asChild className="px-6 py-2 text-sm font-bold">
+            <a href={repo} target="_blank" rel="noreferrer">
+              <Github size={16} /> Project Link
+            </a>
+          </ShinyButton>
         </div>
       </div>
 

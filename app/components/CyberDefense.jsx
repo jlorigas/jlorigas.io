@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Shield, X } from "lucide-react";
+import { ShinyButton } from "@/components/ui/shiny-button";
 
 const defenseSteps = [
   "Scanning anomalous inputs",
@@ -73,13 +74,9 @@ export default function CyberDefense({ onClose }) {
               transition={{ repeat: Infinity, duration: 2.5, ease: "linear" }}
               className="h-2 flex-1 rounded-full border border-white/10 bg-[linear-gradient(90deg,rgba(34,211,238,0.2),rgba(59,130,246,0.7),rgba(168,85,247,0.2))] bg-[length:200%_100%]"
             />
-            <button
-              type="button"
-              onClick={onClose}
-              className="rounded-full border border-cyan-400/20 bg-cyan-500/10 px-5 py-2 text-sm font-semibold text-cyan-100 transition hover:bg-cyan-500/20"
-            >
+            <ShinyButton onClick={onClose}>
               Return to Portfolio
-            </button>
+            </ShinyButton>
           </div>
         </div>
       </motion.div>

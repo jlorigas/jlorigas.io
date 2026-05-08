@@ -6,9 +6,12 @@ import { Menu, X, Terminal } from "lucide-react";
 
 const navLinks = [
   { name: "About", id: "about" },
+  { name: "Skills", id: "skills" },
   { name: "Projects", id: "projects" },
   { name: "Certificates", id: "certificates" },
+  { name: "Contact", id: "contact" },
 ];
+const NAV_SCROLL_OFFSET = 108;
 
 function SystemClock() {
   const [time, setTime] = useState("");
@@ -43,6 +46,25 @@ export default function Navbar() {
   const [active, setActive] = useState("");
 
   useEffect(() => {
+    const sections = navLinks
+      .map(({ id }) => document.getElementById(id))
+      .filter(Boolean);
+
+    const updateNavbarState = () => {
+      const scrollPosition = window.scrollY + NAV_SCROLL_OFFSET + 24;
+      setScrolled(window.scrollY > 20);
+
+      let nextActive = "";
+
+      sections.forEach((section) => {
+        if (section.offsetTop <= scrollPosition) {
+          nextActive = section.id;
+        }
+      });
+
+      setActive(nextActive);
+    };
+
     let ticking = false;
 
     const handleScroll = () => {
@@ -52,46 +74,83 @@ export default function Navbar() {
 
       ticking = true;
       window.requestAnimationFrame(() => {
-        setScrolled(window.scrollY > 20);
+        updateNavbarState();
         ticking = false;
       });
     };
 
-    handleScroll();
+    updateNavbarState();
     window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", updateNavbarState);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updateNavbarState);
+    };
   }, []);
 
   useEffect(() => {
-    const sections = navLinks
-      .map(({ id }) => document.getElementById(id))
-      .filter(Boolean);
-
-    if (!sections.length) {
+    if (!window.location.hash) {
       return undefined;
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    const frame = window.requestAnimationFrame(() => {
+      const targetId = window.location.hash.replace("#", "");
+      const section = document.getElementById(targetId);
 
-        if (visibleEntries[0]?.target?.id) {
-          setActive(visibleEntries[0].target.id);
-        }
-      },
-      {
-        rootMargin: "-20% 0px -55% 0px",
-        threshold: [0.2, 0.4, 0.6],
+      if (!section) {
+        return;
       }
-    );
 
-    sections.forEach((section) => observer.observe(section));
+      const targetTop =
+        section.getBoundingClientRect().top + window.scrollY - NAV_SCROLL_OFFSET;
+      window.scrollTo({ top: Math.max(0, targetTop), behavior: "smooth" });
+    });
 
-    return () => observer.disconnect();
+    return () => window.cancelAnimationFrame(frame);
   }, []);
+
+  useEffect(() => {
+    if (!mobileOpen) {
+      return undefined;
+    }
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        setMobileOpen(false);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [mobileOpen]);
+
+  const scrollToSection = (targetId) => {
+    const section = document.getElementById(targetId);
+    if (!section) {
+      return;
+    }
+
+    const targetTop =
+      section.getBoundingClientRect().top + window.scrollY - NAV_SCROLL_OFFSET;
+
+    window.history.replaceState(null, "", `#${targetId}`);
+    window.scrollTo({ top: Math.max(0, targetTop), behavior: "smooth" });
+    setActive(targetId);
+    setMobileOpen(false);
+  };
+
+  const scrollToTop = () => {
+    window.history.replaceState(null, "", "#");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setActive("");
+    setMobileOpen(false);
+  };
 
   return (
     <nav
@@ -105,13 +164,18 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative h-10">
         
         {/* LEFT: LOGO / SYSTEM ID */}
-        <div className="flex items-center gap-2">
+        <button
+          type="button"
+          onClick={scrollToTop}
+          className="flex items-center gap-2 rounded-lg transition hover:opacity-85"
+          aria-label="Scroll to top"
+        >
           <Terminal size={18} className="text-blue-500" />
           <div className="flex flex-col">
             <span className="text-[10px] font-mono font-bold text-white tracking-tighter leading-none">JOMAR.SYS</span>
             <span className="text-[8px] font-mono text-blue-500/60 leading-none">v2.0.4</span>
           </div>
-        </div>
+        </button>
 
         {/* CENTER: DESKTOP NAV (Perfectly Centered) */}
         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-2 p-1 bg-white/5 rounded-full border border-white/5 backdrop-blur-sm">
@@ -119,6 +183,10 @@ export default function Navbar() {
             <a
               key={link.id}
               href={`#${link.id}`}
+              onClick={(event) => {
+                event.preventDefault();
+                scrollToSection(link.id);
+              }}
               className={`relative px-5 py-1.5 text-[10px] font-mono uppercase tracking-[0.2em] transition-colors duration-300 ${
                 active === link.id ? "text-white" : "text-gray-500 hover:text-gray-300"
               }`}
@@ -140,8 +208,10 @@ export default function Navbar() {
           <SystemClock />
 
           <button
+            type="button"
             className="p-2 rounded-lg bg-white/5 border border-white/10 md:hidden text-white hover:bg-white/10 transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
             {mobileOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -162,7 +232,10 @@ export default function Navbar() {
                 <a
                   key={link.id}
                   href={`#${link.id}`}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    scrollToSection(link.id);
+                  }}
                   className="flex items-center justify-between text-xl font-mono uppercase tracking-tighter text-gray-400 hover:text-blue-500 py-2 border-b border-white/5"
                 >
                   <span>{link.name}</span>

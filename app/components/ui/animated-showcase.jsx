@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, ExternalLink, Lock } from "lucide-react";
+import { ShinyButton } from "@/components/ui/shiny-button";
 
 function cn(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -12,14 +13,7 @@ function cn(...classes) {
 function ActionButton({ action, primary = false }) {
   if (!action?.href) {
     return (
-      <span
-        className={cn(
-          "inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold uppercase tracking-[0.18em]",
-          primary
-            ? "border-white/10 bg-white/8 text-gray-500"
-            : "border-white/10 bg-transparent text-gray-500"
-        )}
-      >
+      <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-semibold uppercase tracking-[0.18em] text-gray-500">
         <Lock size={14} />
         {action?.label || "Unavailable"}
       </span>
@@ -27,20 +21,15 @@ function ActionButton({ action, primary = false }) {
   }
 
   return (
-    <a
-      href={action.href}
-      target="_blank"
-      rel="noreferrer"
-      className={cn(
-        "inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold uppercase tracking-[0.18em] transition",
-        primary
-          ? "border-cyan-300/30 bg-cyan-400/15 text-cyan-100 hover:border-cyan-200/50 hover:bg-cyan-400/20"
-          : "border-white/10 bg-transparent text-white/85 hover:border-white/25 hover:bg-white/5"
-      )}
+    <ShinyButton
+      asChild
+      className={primary ? "" : "border-white/10 bg-transparent text-white/85"}
     >
-      <ExternalLink size={14} />
-      {action.label}
-    </a>
+      <a href={action.href} target="_blank" rel="noreferrer">
+        <ExternalLink size={14} />
+        {action.label}
+      </a>
+    </ShinyButton>
   );
 }
 

@@ -40,6 +40,10 @@ body {
   scroll-behavior: smooth;
 }
 
+section[id] {
+  scroll-margin-top: 7rem;
+}
+
 body::before {
   content: "";
   position: fixed;

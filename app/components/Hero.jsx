@@ -4,9 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import VanillaTilt from "vanilla-tilt";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Github, Mail, Code2, Terminal, Sparkles } from "lucide-react";
+import { ArrowRight, Code2, Layers3, Sparkles, Terminal, Zap } from "lucide-react";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import {
+  SiFigma,
   SiNextdotjs,
   SiFirebase,
   SiTailwindcss,
@@ -18,13 +19,6 @@ import SpotlightCard from "./ui/spotlight-card";
 import useSafeReducedMotion from "../hooks/use-safe-reduced-motion";
 import { SectionReveal, StaggerItem, StaggerReveal } from "./ui/section-reveal";
 import profileImage from "../../public/profile.png";
-import { withBasePath } from "../lib/base-path";
-
-const floatingBadges = [
-  "Student developer",
-  "Still learning",
-  "Building real projects",
-];
 
 const techStack = [
   { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
@@ -33,6 +27,24 @@ const techStack = [
   { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
   { name: "Tailwind", icon: <SiTailwindcss className="text-cyan-400" /> },
   { name: "React Native", icon: <FaReact className="text-blue-400" /> },
+];
+
+const signalCards = [
+  {
+    label: "Current Focus",
+    value: "Portfolio systems",
+    icon: <Layers3 size={16} />,
+  },
+  {
+    label: "Practice Mode",
+    value: "Frontend + full stack",
+    icon: <Zap size={16} />,
+  },
+  {
+    label: "Design Rhythm",
+    value: "UI polish",
+    icon: <SiFigma className="text-[16px]" />,
+  },
 ];
 
 export default function Hero() {
@@ -85,90 +97,105 @@ export default function Hero() {
           />
         </div>
 
-        <div className="absolute left-10 top-24 hidden flex-col gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-blue-500/40 lg:flex">
-          <span>
-            <Terminal size={10} className="mr-2 inline" />
-            INIT_SEQUENCE_START
-          </span>
-          <span>LOADING_MODULES... OK</span>
-        </div>
-
-        <div className="relative z-10 grid w-full max-w-7xl items-center gap-12 lg:grid-cols-12">
+        <div className="relative z-10 grid w-full max-w-7xl items-center gap-14 lg:grid-cols-12">
           <SectionReveal className="relative z-20 lg:col-span-7" x={-30}>
             <StaggerReveal className="space-y-0" staggerChildren={0.1}>
               <StaggerItem>
-                <div className="mb-6 flex items-center gap-2 font-mono text-xs text-blue-400 md:text-sm">
-                  <div className="rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1.5 shadow-[0_0_30px_rgba(37,99,235,0.15)]">
-                    <Code2 size={14} className="mr-2 inline" />
-                    <span className="tracking-widest uppercase">
-                      IT_Graduate
-                    </span>
+                <div className="mb-7 flex flex-wrap items-center gap-3">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.28em] text-cyan-100 shadow-[0_0_30px_rgba(34,211,238,0.14)]">
+                    <Code2 size={14} />
+                    IT Graduate
+                  </div>
+                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-mono text-[10px] uppercase tracking-[0.24em] text-gray-300">
+                    <Terminal size={14} />
+                    Building in public
                   </div>
                 </div>
               </StaggerItem>
 
               <StaggerItem>
-                <div className="mb-6 flex flex-wrap gap-3">
-                  {floatingBadges.map((badge, index) => (
+                <div className="max-w-4xl">
+                  <h1 className="relative z-30 text-5xl font-black leading-[0.88] tracking-tight text-white md:text-7xl xl:text-[5.2rem]">
+                    Interface-first
+                    <span className="block bg-gradient-to-r from-cyan-200 via-blue-300 to-fuchsia-300 bg-clip-text text-transparent">
+                      projects for a growing
+                    </span>
+                    <span className="block text-white/92">frontend journey.</span>
+                  </h1>
+
+                  <p className="mt-7 max-w-2xl text-lg leading-8 text-gray-300 md:text-xl">
+                    I&apos;m <span className="font-semibold text-white">Jomar Lorigas</span>,
+                    an Information Technology graduate exploring modern web
+                    interfaces, connected systems, and cleaner product
+                    experiences through real builds.
+                  </p>
+                </div>
+              </StaggerItem>
+
+              <StaggerItem>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <a
+                    href="#projects"
+                    className="inline-flex items-center gap-2 rounded-full border border-cyan-300/25 bg-cyan-300/12 px-6 py-3 text-sm font-semibold text-cyan-100 transition hover:border-cyan-200/55 hover:bg-cyan-300/18"
+                  >
+                    View Projects
+                    <ArrowRight size={16} />
+                  </a>
+                  <a
+                    href="#skills"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-white/80 transition hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
+                  >
+                    Explore Skills
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => setGameActive(true)}
+                    className="inline-flex items-center gap-2 rounded-full border border-fuchsia-300/20 bg-fuchsia-300/10 px-5 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-fuchsia-100 transition hover:border-fuchsia-200/40 hover:bg-fuchsia-300/16"
+                  >
+                    <Sparkles size={14} />
+                    Launch Mini Defense
+                  </button>
+                </div>
+              </StaggerItem>
+
+              <StaggerItem>
+                <div className="mt-10 grid gap-3 sm:grid-cols-3">
+                  {signalCards.map((card, index) => (
                     <motion.div
-                      key={badge}
+                      key={card.label}
                       animate={shouldReduceMotion ? undefined : { y: [0, -4, 0] }}
                       transition={
                         shouldReduceMotion
                           ? undefined
-                          : { repeat: Infinity, duration: 3 + index * 0.5, ease: "easeInOut" }
+                          : {
+                              repeat: Infinity,
+                              duration: 3.6 + index * 0.35,
+                              ease: "easeInOut",
+                            }
                       }
-                      className="rounded-full border border-white/10 bg-white/5 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.25em] text-gray-300"
+                      className="rounded-[1.35rem] border border-white/10 bg-white/[0.04] p-4 backdrop-blur-md"
                     >
-                      {badge}
+                      <div className="flex items-center gap-2 text-cyan-200">
+                        {card.icon}
+                        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-cyan-200/80">
+                          {card.label}
+                        </p>
+                      </div>
+                      <p className="mt-3 text-sm font-semibold text-white">
+                        {card.value}
+                      </p>
                     </motion.div>
                   ))}
                 </div>
               </StaggerItem>
 
               <StaggerItem>
-                <h1 className="relative z-30 mb-6 text-5xl font-black leading-[0.9] tracking-tighter text-white md:text-7xl">
-                  Building <br />
-                  <span
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      setGameActive(true);
-                    }}
-                    className="group relative z-[100] inline-block cursor-pointer select-none transition-transform active:scale-95"
-                  >
-                    <span
-                      className={`bg-gradient-to-r from-blue-300 via-cyan-300 to-fuchsia-500 bg-clip-text text-transparent transition-all duration-300 ${
-                        isGameActive
-                          ? "bg-none text-red-500 brightness-150"
-                          : "group-hover:brightness-125"
-                      }`}
-                    >
-                      {isGameActive ? "SYSTEM_BREACH_DETECTED" : "My Skills Step by Step"}
-                    </span>
-
-                    <span className="absolute -top-6 left-0 whitespace-nowrap rounded border border-red-500/30 bg-black/90 px-2 py-0.5 font-mono text-[10px] text-red-500 opacity-0 transition-opacity group-hover:opacity-100">
-                      WARNING CLICK_TO_INIT_DEFENSE
-                    </span>
-                  </span>
-                </h1>
-              </StaggerItem>
-
-              <StaggerItem>
-                <p className="max-w-2xl border-l-2 border-white/10 pl-6 text-lg font-light leading-relaxed text-gray-400 md:text-xl">
-                  I&apos;m <span className="font-medium text-white">Jomar Lorigas</span>.
-                  I&apos;m a fresh Information Technology graduate who enjoys
-                  learning by building websites, exploring full-stack tools,
-                  and improving my skills through real projects.
-                </p>
-              </StaggerItem>
-
-              <StaggerItem>
-                <div className="mt-10 flex flex-wrap gap-3">
+                <div className="mt-8 flex flex-wrap gap-3">
                   {techStack.map((tech) => (
                     <motion.div
                       key={tech.name}
                       whileHover={{ y: -4 }}
-                      className="group flex cursor-default items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 transition-all hover:border-blue-500/50 hover:bg-white/10"
+                      className="group flex cursor-default items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 transition-all hover:border-blue-500/50 hover:bg-white/10"
                     >
                       <span className="text-lg opacity-70 transition-opacity group-hover:opacity-100">
                         {tech.icon}
@@ -180,91 +207,70 @@ export default function Hero() {
                   ))}
                 </div>
               </StaggerItem>
-
-              <StaggerItem>
-                <div className="relative z-40 mt-12 flex flex-wrap items-center gap-5">
-                  <a
-                    href={withBasePath("/Resume.pdf")}
-                    className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-blue-600 px-8 py-4 font-bold text-white shadow-[0_0_30px_rgba(37,99,235,0.3)] transition-all hover:shadow-[0_0_40px_rgba(37,99,235,0.5)]"
-                  >
-                    <span className="relative z-10 flex items-center gap-2">
-                      <Terminal size={18} /> Initialize CV
-                      
-                    </span>
-                    <div className="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-[100%]" />
-                  </a>
-
-                  <div className="flex gap-3">
-                    <a
-                      href="https://github.com/jomarlopezlorigas-arch"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded-full border border-white/10 bg-white/5 p-4 transition-all hover:border-blue-500/50 hover:text-blue-400"
-                    >
-                      <Github size={20} />
-                    </a>
-                    <a
-                      href="mailto:jomarlopezlorigas@gmail.com"
-                      className="rounded-full border border-white/10 bg-white/5 p-4 transition-all hover:border-blue-500/50 hover:text-blue-400"
-                    >
-                      <Mail size={20} />
-                    </a>
-                  </div>
-                </div>
-              </StaggerItem>
             </StaggerReveal>
           </SectionReveal>
 
           <SectionReveal className="relative z-10 flex justify-center lg:col-span-5" delay={0.12} scale={0.98}>
-            <div className="relative w-full max-w-[420px]">
-              <motion.div
-                animate={shouldReduceMotion ? undefined : { y: [0, -10, 0] }}
-                transition={
-                  shouldReduceMotion
-                    ? undefined
-                    : { repeat: Infinity, duration: 4.6, ease: "easeInOut" }
-                }
-                className="absolute -left-6 top-10 hidden rounded-2xl border border-cyan-400/15 bg-cyan-400/10 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.24em] text-cyan-100 shadow-[0_0_20px_rgba(34,211,238,0.2)] md:block"
-              >
-                <Sparkles size={14} className="mb-2" />
-                Learning by building
-              </motion.div>
+            <div className="relative w-full max-w-[470px]">
+              <SpotlightCard className="overflow-hidden p-4">
+                <div className="relative rounded-[1.8rem] border border-white/10 bg-[linear-gradient(180deg,rgba(6,10,18,0.96),rgba(8,12,21,0.92))] p-4">
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.14),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(217,70,239,0.12),transparent_28%)]" />
+                  <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.024)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.018)_1px,transparent_1px)] bg-[size:30px_30px]" />
 
-              <motion.div
-                animate={shouldReduceMotion ? undefined : { y: [0, 8, 0] }}
-                transition={
-                  shouldReduceMotion
-                    ? undefined
-                    : { repeat: Infinity, duration: 4.2, ease: "easeInOut", delay: 0.5 }
-                }
-                className="absolute -right-4 bottom-10 hidden rounded-2xl border border-fuchsia-400/15 bg-fuchsia-400/10 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.24em] text-fuchsia-100 shadow-[0_0_20px_rgba(217,70,239,0.2)] md:block"
-              >
-                Growing one project at a time
-              </motion.div>
+                  <div className="relative z-10">
+                    <div className="mb-4 flex items-center justify-between rounded-[1.2rem] border border-white/10 bg-white/[0.03] px-4 py-3">
+                      <div>
+                        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-cyan-200/80">
+                          Live Build
+                        </p>
+                        <p className="mt-1 text-sm font-semibold text-white">
+                          Portfolio interface system
+                        </p>
+                      </div>
+                      <div className="rounded-full border border-emerald-300/20 bg-emerald-400/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-emerald-200">
+                        Active
+                      </div>
+                    </div>
 
-              <SpotlightCard className="p-4">
-                <div className="absolute inset-0 -z-10 hidden opacity-30 lg:block">
-                  <svg width="100%" height="100%" viewBox="0 0 400 400">
-                    <path d="M 200 200 L 400 50" stroke="#3b82f6" strokeWidth="1" fill="none" strokeDasharray="5,5" />
-                    <path d="M 200 200 L 400 350" stroke="#a855f7" strokeWidth="1" fill="none" strokeDasharray="5,5" />
-                  </svg>
-                </div>
+                    <div
+                      ref={photoRef}
+                      className="relative aspect-[0.9] w-full overflow-hidden rounded-[1.55rem] border border-white/10 bg-gradient-to-br from-blue-500/20 to-fuchsia-500/20 p-1"
+                    >
+                      <div className="absolute inset-0 rounded-[1.55rem] bg-[#0a0d14]/84" />
+                      <div className="relative z-10 h-full w-full overflow-hidden rounded-[1.25rem]">
+                        <Image
+                          src={profileImage}
+                          alt="Jomar Lorigas"
+                          fill
+                          priority
+                          sizes="(min-width: 1024px) 470px, 90vw"
+                          className="object-cover"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#02050a] via-transparent to-transparent" />
+                      </div>
+                    </div>
 
-                <div
-                  ref={photoRef}
-                  className="relative aspect-square w-full overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-blue-500/30 to-purple-500/30 p-1 backdrop-blur-sm"
-                >
-                  <div className="absolute inset-0 z-0 rounded-[1.5rem] bg-[#0a0a0a]/80" />
-                  <div className="relative z-10 h-full w-full overflow-hidden rounded-[1.25rem] bg-gradient-to-br from-cyan-500/20 to-purple-500/20">
-                    <Image
-                      src={profileImage}
-                      alt="Jomar Lorigas"
-                      fill
-                      priority
-                      sizes="(min-width: 1024px) 420px, 90vw"
-                      className="object-cover"
-                    />
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+                    <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                      <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.03] p-4">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-cyan-200/80">
+                          Workflow
+                        </p>
+                        <p className="mt-3 text-sm leading-6 text-gray-300">
+                          Designing sections, refining motion, and turning ideas
+                          into real portfolio pages.
+                        </p>
+                      </div>
+
+                      <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.03] p-4">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-cyan-200/80">
+                          Learning Mode
+                          </p>
+                        <p className="mt-3 text-sm leading-6 text-gray-300">
+                          Improving component structure, frontend polish, and
+                          full-stack confidence step by step.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </SpotlightCard>

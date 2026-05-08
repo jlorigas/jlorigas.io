@@ -4,10 +4,12 @@ import { useEffect, useMemo, useState } from "react";
 import OpeningAnimation from "./components/OpeningAnimation";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import About from "./components/About";          // <-- already imported
+import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Certificates from "./components/Certificates";
+import Contact from "./components/Contact";
+import ScrollProgress from "./components/ui/scroll-progress";
 import { DottedGlowBackground } from "./components/ui/dotted-glow-background";
 
 export default function Home() {
@@ -74,14 +76,16 @@ export default function Home() {
   return (
     <div className="relative isolate min-h-screen overflow-hidden">
       {portfolioBackground}
+      <ScrollProgress />
       <Navbar />
 
       <main className="relative z-10 text-foreground">
         <Hero />
-        <About />          {/* <-- About section added here */}
+        <About />
         <Skills />
         <Projects />
         <Certificates />
+        <Contact />
       </main>
     </div>
   );

@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import SpotlightCard from "./ui/spotlight-card";
+import ScrollRevealText from "./ui/scroll-reveal-text";
 import {
   SectionReveal,
   StaggerItem,
@@ -58,7 +59,13 @@ export default function About() {
       id="about"
       className="relative mx-auto max-w-7xl overflow-hidden px-6 py-28"
     >
-      <div className="pointer-events-none absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent" />
+      <motion.div
+        initial={{ scaleX: 0, opacity: 0.45 }}
+        whileInView={{ scaleX: 1, opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: false, amount: 0.7 }}
+        className="pointer-events-none absolute inset-x-12 top-0 h-px origin-center bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent"
+      />
       <div className="pointer-events-none absolute -left-24 top-16 h-72 w-72 rounded-full bg-cyan-500/10 blur-[120px]" />
       <div className="pointer-events-none absolute -right-24 bottom-8 h-80 w-80 rounded-full bg-fuchsia-500/10 blur-[140px]" />
 
@@ -74,18 +81,27 @@ export default function About() {
 
             <StaggerItem>
               <div className="max-w-3xl space-y-5">
-                <h2 className="text-4xl font-black leading-[0.92] tracking-tight text-white md:text-6xl">
-                  I build digital projects
-                  <span className="block bg-gradient-to-r from-cyan-300 via-blue-300 to-fuchsia-400 bg-clip-text text-transparent">
-                    while learning every step.
-                  </span>
-                </h2>
-                <p className="max-w-2xl text-lg leading-8 text-gray-300 md:text-xl">
-                  I&apos;m <span className="font-semibold text-white">Jomar Lorigas</span>,
-                  a recent Information Technology graduate who is still growing
-                  in full-stack development, learning modern tools and systems,
-                  and building clean, user-friendly digital experiences.
-                </p>
+                <div className="space-y-2">
+                  <ScrollRevealText
+                    as="h2"
+                    text="I build digital projects"
+                    className="text-4xl font-black leading-[0.92] tracking-tight text-white md:text-6xl"
+                  />
+                  <ScrollRevealText
+                    as="div"
+                    text="while learning every step."
+                    className="text-4xl font-black leading-[0.92] tracking-tight md:text-6xl"
+                    activeWordClassName="bg-gradient-to-r from-cyan-300 via-blue-300 to-fuchsia-400 bg-clip-text text-transparent"
+                    delay={0.08}
+                  />
+                </div>
+                <ScrollRevealText
+                  as="p"
+                  text="I'm Jomar Lorigas, a recent Information Technology graduate who is still growing in full-stack development, learning modern tools and systems, and building clean, user-friendly digital experiences."
+                  className="max-w-2xl text-lg leading-8 text-gray-300 md:text-xl"
+                  amount={0.35}
+                  delay={0.04}
+                />
               </div>
             </StaggerItem>
 
@@ -142,27 +158,6 @@ export default function About() {
           scale={0.98}
         >
           <div className="relative">
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 4.4, ease: "easeInOut" }}
-              className="absolute -left-4 top-8 z-20 hidden rounded-2xl border border-cyan-400/20 bg-cyan-400/10 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.24em] text-cyan-100 shadow-[0_20px_60px_rgba(34,211,238,0.12)] lg:block"
-            >
-              Architecture-led
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{
-                repeat: Infinity,
-                duration: 4.8,
-                ease: "easeInOut",
-                delay: 0.3,
-              }}
-              className="absolute -right-4 bottom-10 z-20 hidden rounded-2xl border border-fuchsia-400/20 bg-fuchsia-400/10 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.24em] text-fuchsia-100 shadow-[0_20px_60px_rgba(217,70,239,0.12)] lg:block"
-            >
-              UI with discipline
-            </motion.div>
-
             <SpotlightCard className="relative p-4 md:p-5">
               <div className="relative overflow-hidden rounded-[1.8rem] border border-white/10 bg-[#050910]/95 p-5">
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.14),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(168,85,247,0.12),transparent_30%)]" />
