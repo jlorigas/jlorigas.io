@@ -116,7 +116,7 @@ const floatingLanguages = [
     className: "text-[#c7d2fe]",
     radius: 410,
     startAngle: 212,
-    duration: "26s",
+    duration: "42s",
     spinClassName: "skills-orbit",
   },
   {
@@ -125,7 +125,7 @@ const floatingLanguages = [
     className: "text-[#f7df1e]",
     radius: 485,
     startAngle: 322,
-    duration: "31s",
+    duration: "48s",
     spinClassName: "skills-orbit-reverse",
   },
   {
@@ -134,7 +134,7 @@ const floatingLanguages = [
     className: "text-[#60a5fa]",
     radius: 460,
     startAngle: 164,
-    duration: "34s",
+    duration: "54s",
     spinClassName: "skills-orbit",
   },
   {
@@ -143,7 +143,7 @@ const floatingLanguages = [
     className: "text-[#fde68a]",
     radius: 525,
     startAngle: 118,
-    duration: "36s",
+    duration: "58s",
     spinClassName: "skills-orbit-reverse",
   },
   {
@@ -152,7 +152,7 @@ const floatingLanguages = [
     className: "text-[#fb923c]",
     radius: 325,
     startAngle: 206,
-    duration: "20s",
+    duration: "36s",
     spinClassName: "skills-orbit",
   },
   {
@@ -161,7 +161,7 @@ const floatingLanguages = [
     className: "text-[#38bdf8]",
     radius: 350,
     startAngle: 32,
-    duration: "23s",
+    duration: "39s",
     spinClassName: "skills-orbit-reverse",
   },
   {
@@ -170,7 +170,7 @@ const floatingLanguages = [
     className: "text-[#61dafb]",
     radius: 385,
     startAngle: 78,
-    duration: "24s",
+    duration: "40s",
     spinClassName: "skills-orbit",
   },
   {
@@ -179,7 +179,7 @@ const floatingLanguages = [
     className: "text-[#f87171]",
     radius: 438,
     startAngle: 24,
-    duration: "29s",
+    duration: "46s",
     spinClassName: "skills-orbit-reverse",
   },
   {
@@ -188,7 +188,7 @@ const floatingLanguages = [
     className: "text-[#86efac]",
     radius: 405,
     startAngle: 268,
-    duration: "27s",
+    duration: "43s",
     spinClassName: "skills-orbit",
   },
   {
@@ -197,7 +197,7 @@ const floatingLanguages = [
     className: "text-white",
     radius: 300,
     startAngle: 356,
-    duration: "19s",
+    duration: "34s",
     spinClassName: "skills-orbit-reverse",
   },
   {
@@ -206,7 +206,7 @@ const floatingLanguages = [
     className: "text-cyan-200",
     radius: 330,
     startAngle: 132,
-    duration: "22s",
+    duration: "38s",
     spinClassName: "skills-orbit",
   },
   {
@@ -215,7 +215,7 @@ const floatingLanguages = [
     className: "text-[#fbbf24]",
     radius: 360,
     startAngle: 188,
-    duration: "25s",
+    duration: "41s",
     spinClassName: "skills-orbit-reverse",
   },
   {
@@ -224,7 +224,7 @@ const floatingLanguages = [
     className: "text-[#93c5fd]",
     radius: 495,
     startAngle: 286,
-    duration: "33s",
+    duration: "56s",
     spinClassName: "skills-orbit",
   },
   {
@@ -233,7 +233,7 @@ const floatingLanguages = [
     className: "text-[#67e8f9]",
     radius: 290,
     startAngle: 104,
-    duration: "18s",
+    duration: "32s",
     spinClassName: "skills-orbit-reverse",
   },
 ];
@@ -288,7 +288,7 @@ function MatrixBackdrop() {
             transform: translateY(0) scale(1) rotate(0deg);
           }
           to {
-            transform: translateY(-5px) scale(1.08) rotate(8deg);
+            transform: translateY(-3px) scale(1.04) rotate(5deg);
           }
         }
 
@@ -301,7 +301,7 @@ function MatrixBackdrop() {
         }
 
         .skills-icon-bob {
-          animation: skills-icon-bob 3.8s ease-in-out infinite alternate;
+          animation: skills-icon-bob 5.8s ease-in-out infinite alternate;
         }
       `}</style>
 
