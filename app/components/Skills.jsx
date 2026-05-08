@@ -114,7 +114,7 @@ const floatingLanguages = [
     name: "PHP",
     icon: SiPhp,
     className: "text-[#c7d2fe]",
-    radius: 370,
+    radius: 410,
     startAngle: 212,
     duration: "26s",
     spinClassName: "skills-orbit",
@@ -123,7 +123,7 @@ const floatingLanguages = [
     name: "JavaScript",
     icon: SiJavascript,
     className: "text-[#f7df1e]",
-    radius: 435,
+    radius: 485,
     startAngle: 322,
     duration: "31s",
     spinClassName: "skills-orbit-reverse",
@@ -132,7 +132,7 @@ const floatingLanguages = [
     name: "TypeScript",
     icon: SiTypescript,
     className: "text-[#60a5fa]",
-    radius: 420,
+    radius: 460,
     startAngle: 164,
     duration: "34s",
     spinClassName: "skills-orbit",
@@ -141,7 +141,7 @@ const floatingLanguages = [
     name: "Python",
     icon: SiPython,
     className: "text-[#fde68a]",
-    radius: 470,
+    radius: 525,
     startAngle: 118,
     duration: "36s",
     spinClassName: "skills-orbit-reverse",
@@ -150,7 +150,7 @@ const floatingLanguages = [
     name: "HTML",
     icon: SiHtml5,
     className: "text-[#fb923c]",
-    radius: 285,
+    radius: 325,
     startAngle: 206,
     duration: "20s",
     spinClassName: "skills-orbit",
@@ -159,7 +159,7 @@ const floatingLanguages = [
     name: "CSS",
     icon: SiCss3,
     className: "text-[#38bdf8]",
-    radius: 310,
+    radius: 350,
     startAngle: 32,
     duration: "23s",
     spinClassName: "skills-orbit-reverse",
@@ -168,7 +168,7 @@ const floatingLanguages = [
     name: "React",
     icon: FaReact,
     className: "text-[#61dafb]",
-    radius: 335,
+    radius: 385,
     startAngle: 78,
     duration: "24s",
     spinClassName: "skills-orbit",
@@ -177,7 +177,7 @@ const floatingLanguages = [
     name: "Ruby",
     icon: SiRuby,
     className: "text-[#f87171]",
-    radius: 392,
+    radius: 438,
     startAngle: 24,
     duration: "29s",
     spinClassName: "skills-orbit-reverse",
@@ -186,7 +186,7 @@ const floatingLanguages = [
     name: "Node.js",
     icon: SiNodedotjs,
     className: "text-[#86efac]",
-    radius: 360,
+    radius: 405,
     startAngle: 268,
     duration: "27s",
     spinClassName: "skills-orbit",
@@ -195,7 +195,7 @@ const floatingLanguages = [
     name: "Next.js",
     icon: SiNextdotjs,
     className: "text-white",
-    radius: 255,
+    radius: 300,
     startAngle: 356,
     duration: "19s",
     spinClassName: "skills-orbit-reverse",
@@ -204,7 +204,7 @@ const floatingLanguages = [
     name: "REST API",
     icon: Link,
     className: "text-cyan-200",
-    radius: 285,
+    radius: 330,
     startAngle: 132,
     duration: "22s",
     spinClassName: "skills-orbit",
@@ -213,7 +213,7 @@ const floatingLanguages = [
     name: "Firebase",
     icon: SiFirebase,
     className: "text-[#fbbf24]",
-    radius: 315,
+    radius: 360,
     startAngle: 188,
     duration: "25s",
     spinClassName: "skills-orbit-reverse",
@@ -222,7 +222,7 @@ const floatingLanguages = [
     name: "PostgreSQL",
     icon: SiPostgresql,
     className: "text-[#93c5fd]",
-    radius: 445,
+    radius: 495,
     startAngle: 286,
     duration: "33s",
     spinClassName: "skills-orbit",
@@ -231,7 +231,7 @@ const floatingLanguages = [
     name: "Tailwind",
     icon: SiTailwindcss,
     className: "text-[#67e8f9]",
-    radius: 245,
+    radius: 290,
     startAngle: 104,
     duration: "18s",
     spinClassName: "skills-orbit-reverse",
@@ -306,14 +306,14 @@ function MatrixBackdrop() {
       `}</style>
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[#04070d]" />
+        <div className="absolute inset-0 bg-[#04070d]/55" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_6%,rgba(34,211,238,0.16),transparent_20%),radial-gradient(circle_at_52%_18%,rgba(56,189,248,0.12),transparent_18%),radial-gradient(circle_at_72%_10%,rgba(217,70,239,0.12),transparent_18%),radial-gradient(circle_at_100%_100%,rgba(255,255,255,0.05),transparent_26%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.16)_1px,transparent_1.5px)] bg-[size:22px_22px] opacity-[0.28]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:110px_110px] opacity-35" />
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#05111a] via-[#05111a]/70 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#03050a] via-[#03050a]/85 to-transparent" />
-        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#04111a] to-transparent" />
-        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#03050a] to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#05111a]/70 via-[#05111a]/35 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#03050a]/75 via-[#03050a]/45 to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#04111a]/55 to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#03050a]/55 to-transparent" />
 
         <div className="absolute inset-0 hidden sm:block">
           {floatingLanguages.map((language) => {
