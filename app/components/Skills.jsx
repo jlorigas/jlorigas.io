@@ -335,7 +335,7 @@ function MatrixBackdrop() {
                 className="absolute left-0 top-0"
                 style={{ transform: `translateX(${language.radius}px) translateY(-50%)` }}
               >
-                <div className="flex -translate-x-1/2 -translate-y-1/2 items-center gap-3 rounded-[1.25rem] border border-white/12 bg-[#09111d]/82 px-4 py-3 shadow-[0_20px_60px_rgba(0,0,0,0.34)] backdrop-blur-md">
+                <div className="flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-2xl border border-white/12 bg-[#09111d]/82 shadow-[0_20px_60px_rgba(0,0,0,0.34)] backdrop-blur-md">
                   <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-black/30">
                     <Icon
                       className={cn(
@@ -344,9 +344,6 @@ function MatrixBackdrop() {
                         shouldReduceMotion ? "" : "skills-icon-bob"
                       )}
                     />
-                  </span>
-                  <span className="font-mono text-xs uppercase tracking-[0.34em] text-white/78">
-                    {language.name}
                   </span>
                 </div>
               </div>
