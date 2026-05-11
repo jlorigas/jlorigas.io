@@ -115,7 +115,10 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative mx-auto max-w-7xl px-6 py-28">
+    <section
+      id="projects"
+      className="relative mx-auto max-w-[1600px] px-8 py-32 md:px-10 md:py-36 xl:px-16"
+    >
       <SectionDivider />
 
       <SectionReveal

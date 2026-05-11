@@ -25,6 +25,7 @@ import SpotlightCard from "./ui/spotlight-card";
 import useSafeReducedMotion from "../hooks/use-safe-reduced-motion";
 import { SectionReveal, StaggerItem, StaggerReveal } from "./ui/section-reveal";
 import profileImage from "../../public/profile.png";
+import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
 
 const codeStack = [
   { name: "JavaScript", icon: <SiJavascript className="text-[#f7df1e]" /> },
@@ -42,6 +43,13 @@ const codeStack = [
 ];
 
 const marqueeStack = [...codeStack, ...codeStack];
+
+const heroWords = [
+  "frontend experiences",
+  "backend systems",
+  "full-stack builds",
+  "cleaner interfaces",
+];
 
 const signalCards = [
   {
@@ -87,7 +95,7 @@ export default function Hero() {
   }, [shouldReduceMotion]);
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-transparent px-6 pt-24">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-transparent px-8 pt-0 md:px-10 xl:px-16">
       <BackgroundLines className="flex min-h-screen w-full items-center justify-center">
         <div className="pointer-events-none absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_70%,transparent_110%)]" />
@@ -111,7 +119,7 @@ export default function Hero() {
           />
         </div>
 
-        <div className="relative z-10 grid w-full max-w-7xl items-center gap-14 lg:grid-cols-12">
+        <div className="relative z-10 grid w-full max-w-[1600px] items-center gap-16 xl:gap-20 lg:grid-cols-12">
           <SectionReveal className="relative z-20 lg:col-span-7" x={-30}>
             <StaggerReveal className="space-y-0" staggerChildren={0.1}>
               <StaggerItem>
@@ -130,11 +138,13 @@ export default function Hero() {
               <StaggerItem>
                 <div className="max-w-4xl">
                   <h1 className="relative z-30 text-5xl font-black leading-[0.88] tracking-tight text-white md:text-7xl xl:text-[5.2rem]">
-                  Crafting clean code
-                    <span className="block bg-gradient-to-r from-cyan-200 via-blue-300 to-fuchsia-300 bg-clip-text text-transparent">
-                      across frontend, backend, 
-                    </span>
-                    <span className="block text-white/92">and beyond.</span>
+                    <span className="block text-white">Crafting clean code for</span>
+                    <LayoutTextFlip
+                      words={heroWords}
+                      className="mt-2 justify-start gap-x-0"
+                      wordClassName="min-w-0 text-left"
+                    />
+                    <span className="mt-2 block text-white/92">and beyond.</span>
                   </h1>
 
                   <p className="mt-7 max-w-2xl text-lg leading-8 text-gray-300 md:text-xl">
@@ -247,7 +257,11 @@ export default function Hero() {
             </StaggerReveal>
           </SectionReveal>
 
-          <SectionReveal className="relative z-10 flex justify-center lg:col-span-5" delay={0.12} scale={0.98}>
+          <SectionReveal
+            className="relative z-10 flex justify-center lg:-mt-10 lg:col-span-5 xl:-mt-14"
+            delay={0.12}
+            scale={0.98}
+          >
             <div className="relative w-full max-w-[470px]">
               <SpotlightCard className="overflow-hidden p-4">
                 <div className="relative rounded-[1.8rem] border border-white/10 bg-[linear-gradient(180deg,rgba(6,10,18,0.96),rgba(8,12,21,0.92))] p-4">

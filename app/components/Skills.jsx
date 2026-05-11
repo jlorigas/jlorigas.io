@@ -630,7 +630,10 @@ function RadialOrbitalTimeline({ timelineData: items }) {
 
 export default function TechSkills() {
   return (
-    <section id="skills" className="relative mx-auto max-w-7xl overflow-hidden px-6 py-28">
+    <section
+      id="skills"
+      className="relative mx-auto max-w-[1600px] overflow-hidden px-8 py-32 md:px-10 md:py-36 xl:px-16"
+    >
       <SectionDivider className="via-cyan-300/30" />
       <MatrixBackdrop />
 

@@ -11,7 +11,6 @@ import Certificates from "./components/Certificates";
 import Contact from "./components/Contact";
 import ScrollProgress from "./components/ui/scroll-progress";
 import { DottedGlowBackground } from "./components/ui/dotted-glow-background";
-
 export default function Home() {
   const [hydrated, setHydrated] = useState(false);
   const [loading, setLoading] = useState(false);

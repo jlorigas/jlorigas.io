@@ -57,7 +57,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative mx-auto max-w-7xl overflow-hidden px-6 py-28"
+      className="relative mx-auto max-w-[1600px] overflow-hidden px-8 py-32 md:px-10 md:py-36 xl:px-16"
     >
       <motion.div
         initial={{ scaleX: 0, opacity: 0.45 }}

@@ -207,7 +207,7 @@ export default function Certificates() {
   return (
     <section
       id="certificates"
-      className="relative mx-auto max-w-7xl overflow-hidden px-6 py-28"
+      className="relative mx-auto max-w-[1600px] overflow-hidden px-8 py-32 md:px-10 md:py-36 xl:px-16"
     >
       <SectionDivider className="via-blue-400/30" />
       <div className="pointer-events-none absolute -right-20 -top-20 h-[500px] w-[500px] rounded-full bg-blue-600/5 blur-[140px]" />
