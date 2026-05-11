@@ -4,7 +4,7 @@ import { FolderKanban } from "lucide-react";
 import AnimatedShowcase from "./ui/animated-showcase";
 import SectionDivider from "./ui/section-divider";
 import { SectionReveal } from "./ui/section-reveal";
-import codeExplainerImage from "../../public/Projects/code-explainer-workspace.svg";
+import codeExplainerImage from "../../public/Projects/code-explainer-workspace.png";
 import guysAndGalsImage from "../../public/Projects/Guys and Gals proj.png";
 import sentraImage from "../../public/Projects/Sentra.png";
 import profileImage from "../../public/profile.png";
