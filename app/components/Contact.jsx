@@ -37,7 +37,7 @@ const contactLinks = [
   {
     id: "github",
     label: "GitHub",
-    href: "https://github.com/jomarlopezlorigas-arch",
+    href: "https://github.com/jlorigas",
     icon: Github,
     hoverClassName:
       "group-hover:border-white/60 group-hover:bg-white group-hover:text-black group-hover:shadow-[0_0_28px_rgba(255,255,255,0.35)]",
