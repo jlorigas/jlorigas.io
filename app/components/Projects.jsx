@@ -7,7 +7,7 @@ import { SectionReveal } from "./ui/section-reveal";
 import codeExplainerImage from "../../public/Projects/code-explainer-workspace.png";
 import guysAndGalsImage from "../../public/Projects/Guys and Gals proj.png";
 import sentraImage from "../../public/Projects/Sentra.png";
-import profileImage from "../../public/profile.png";
+import profileImage from "../../public/Projects/profile.png";
 import { withBasePath } from "../lib/base-path";
 
 const projects = [

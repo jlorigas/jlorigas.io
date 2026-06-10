@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Link, Zap } from "lucide-react";
 import { FaReact } from "react-icons/fa";
 import {
-  SiCss3,
+  SiCss,
   SiJavascript,
   SiFirebase,
   SiHtml5,
@@ -157,7 +157,7 @@ const floatingLanguages = [
   },
   {
     name: "CSS",
-    icon: SiCss3,
+    icon: SiCss,
     className: "text-[#38bdf8]",
     radius: 350,
     startAngle: 32,

@@ -3,17 +3,18 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
+import Image from "next/image";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import {
-  SiCss3,
-  SiNextdotjs,
+  SiCss,
+  SiJavascript,
   SiFirebase,
   SiHtml5,
-  SiJavascript,
+  SiNextdotjs,
   SiPhp,
+  SiPostgresql,
   SiPython,
   SiTailwindcss,
-  SiPostgresql,
   SiTypescript,
 } from "react-icons/si";
 import BackgroundLines from "./ui/background-lines";
@@ -28,7 +29,7 @@ const codeStack = [
   { name: "Python", icon: <SiPython className="text-[#ffd43b]" /> },
   { name: "PHP", icon: <SiPhp className="text-[#aeb2d5]" /> },
   { name: "HTML", icon: <SiHtml5 className="text-[#f97316]" /> },
-  { name: "CSS", icon: <SiCss3 className="text-[#38bdf8]" /> },
+  { name: "CSS", icon: <SiCss className="text-[#38bdf8]" /> },
   { name: "React", icon: <FaReact className="text-[#61dafb]" /> },
   { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
   { name: "Node.js", icon: <FaNodeJs className="text-[#63e27d]" /> },
@@ -97,22 +98,42 @@ export default function Hero() {
               </StaggerItem>
 
               <StaggerItem>
-                <div className="mx-auto max-w-5xl">
-                  <h1 className="relative z-30 text-5xl font-black leading-[0.96] tracking-[-0.07em] text-white md:text-7xl xl:text-[6.2rem]">
-                    <span className="block">Building my path as</span>
-                    <LayoutTextFlip
-                      words={heroWords}
-                      className="mt-2 justify-center gap-x-0"
-                      wordClassName="min-w-0 text-center opacity-80"
-                    />
-                  </h1>
+                <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-12 text-center md:flex-row md:items-center md:justify-between md:text-left">
+                  <motion.div
+                    className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b1120]/85 p-1 shadow-[0_30px_80px_rgba(0,0,0,0.35)]"
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 24 }}
+                  >
+                    <div className="relative overflow-hidden rounded-[1.8rem] bg-slate-950/95">
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.16),transparent_35%)]" />
+                      <Image
+                        src="/profile.png"
+                        alt="Jomar Lorigas"
+                        width={280}
+                        height={280}
+                        className="relative rounded-[1.8rem] object-cover"
+                        priority
+                      />
+                    </div>
+                  </motion.div>
 
-                  <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-gray-300 md:text-2xl md:leading-10">
-                    I&apos;m Jomar Lorigas, a junior developer and IT graduate
-                    who is still learning, building projects, and improving my
-                    skills in frontend and full-stack development one step at a
-                    time.
-                  </p>
+                  <div className="max-w-3xl md:max-w-xl">
+                    <h1 className="relative z-30 text-5xl font-black leading-[0.96] tracking-[-0.07em] text-white md:text-6xl xl:text-[5.8rem]">
+                      <span className="block">Building my path as</span>
+                      <LayoutTextFlip
+                        words={heroWords}
+                        className="mt-2 justify-center md:justify-start gap-x-0"
+                        wordClassName="min-w-0 text-center md:text-left opacity-80"
+                      />
+                    </h1>
+
+                    <p className="mt-8 text-base leading-7 text-gray-300 md:text-lg md:leading-9">
+                      I&apos;m Jomar Lorigas, a junior developer and IT graduate
+                      who is still learning, building projects, and improving my
+                      skills in frontend and full-stack development one step at a
+                      time.
+                    </p>
+                  </div>
                 </div>
               </StaggerItem>
 
