@@ -117,7 +117,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative mx-auto max-w-[1600px] px-8 py-32 md:px-10 md:py-36 xl:px-16"
+      className="relative mx-auto max-w-[1600px] px-5 py-20 sm:px-6 sm:py-24 md:px-10 md:py-32 xl:px-16"
     >
       <SectionDivider />
 
@@ -132,7 +132,7 @@ export default function Projects() {
             <span>Active_Project_Archive</span>
             
           </div>
-          <h2 className="text-4xl font-black uppercase tracking-tight text-white md:text-6xl">
+          <h2 className="text-3xl font-black uppercase tracking-tight text-white sm:text-4xl md:text-6xl">
             Featured{" "}
             <span className="bg-gradient-to-r from-blue-300 to-cyan-300 bg-clip-text text-transparent">
               Projects

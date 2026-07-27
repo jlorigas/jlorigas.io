@@ -57,7 +57,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative mx-auto max-w-[1600px] overflow-hidden px-8 py-32 md:px-10 md:py-36 xl:px-16"
+      className="relative mx-auto max-w-[1600px] overflow-hidden px-5 py-20 sm:px-6 sm:py-24 md:px-10 md:py-32 xl:px-16"
     >
       <motion.div
         initial={{ scaleX: 0, opacity: 0.45 }}
@@ -85,12 +85,12 @@ export default function About() {
                   <ScrollRevealText
                     as="h2"
                     text="I build digital projects"
-                    className="text-4xl font-black leading-[0.92] tracking-tight text-white md:text-6xl"
+                    className="text-3xl font-black leading-[0.92] tracking-tight text-white sm:text-4xl md:text-6xl"
                   />
                   <ScrollRevealText
                     as="div"
                     text="while learning every step."
-                    className="text-4xl font-black leading-[0.92] tracking-tight md:text-6xl"
+                    className="text-3xl font-black leading-[0.92] tracking-tight sm:text-4xl md:text-6xl"
                     activeWordClassName="bg-gradient-to-r from-cyan-300 via-blue-300 to-fuchsia-400 bg-clip-text text-transparent"
                     delay={0.08}
                   />
@@ -98,7 +98,7 @@ export default function About() {
                 <ScrollRevealText
                   as="p"
                   text="I'm Jomar Lorigas, a recent Information Technology graduate who is still growing in full-stack development, learning modern tools and systems, and building clean, user-friendly digital experiences."
-                  className="max-w-2xl text-lg leading-8 text-gray-300 md:text-xl"
+                  className="max-w-2xl text-base leading-7 text-gray-300 sm:text-lg md:text-xl"
                   amount={0.35}
                   delay={0.04}
                 />

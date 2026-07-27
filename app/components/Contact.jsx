@@ -241,7 +241,7 @@ export default function Contact() {
     <>
       <section
         id="contact"
-        className="relative mx-auto max-w-[1600px] overflow-hidden px-8 py-32 md:px-10 md:py-36 xl:px-16"
+        className="relative mx-auto max-w-[1600px] overflow-hidden px-5 py-20 sm:px-6 sm:py-24 md:px-10 md:py-32 xl:px-16"
       >
         <SectionDivider className="via-fuchsia-300/25" />
 
@@ -254,14 +254,14 @@ export default function Contact() {
               Contact_Channel
             </div>
 
-            <h2 className="mb-6 text-5xl font-black tracking-tight text-white md:text-7xl">
+            <h2 className="mb-6 text-4xl font-black tracking-tight text-white sm:text-5xl md:text-7xl">
               Connect{" "}
               <span className="bg-gradient-to-r from-cyan-300 via-blue-300 to-fuchsia-400 bg-clip-text text-transparent">
                 With Me
               </span>
             </h2>
 
-            <p className="mx-auto max-w-2xl text-lg leading-8 text-gray-300">
+            <p className="mx-auto max-w-2xl text-base leading-7 text-gray-300 sm:text-lg">
               Reach out for junior opportunities, collaborations, or just to talk
               about projects, frontend work, and full-stack learning.
             </p>

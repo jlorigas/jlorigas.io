@@ -207,7 +207,7 @@ export default function Certificates() {
   return (
     <section
       id="certificates"
-      className="relative mx-auto max-w-[1600px] overflow-hidden px-8 py-32 md:px-10 md:py-36 xl:px-16"
+      className="relative mx-auto max-w-[1600px] overflow-hidden px-5 py-20 sm:px-6 sm:py-24 md:px-10 md:py-32 xl:px-16"
     >
       <SectionDivider className="via-blue-400/30" />
       <div className="pointer-events-none absolute -right-20 -top-20 h-[500px] w-[500px] rounded-full bg-blue-600/5 blur-[140px]" />
@@ -221,7 +221,7 @@ export default function Certificates() {
           <ShieldCheck size={14} />
           <span>Learning_Certificates</span>
         </div>
-        <h2 className="text-4xl md:text-6xl font-black text-white italic tracking-tighter uppercase">
+        <h2 className="text-3xl font-black text-white italic tracking-tighter uppercase sm:text-4xl md:text-6xl">
           Certifi<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">cations</span>
         </h2>
       </SectionReveal>

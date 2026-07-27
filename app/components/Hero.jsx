@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
-import Image from "next/image";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import {
   SiCss,
@@ -47,12 +46,27 @@ const heroWords = [
   "a journey I am still growing in",
 ];
 
+const heroHighlights = [
+  {
+    label: "Responsive first",
+    text: "I design for mobile screens first, then scale layouts up cleanly for larger devices.",
+  },
+  {
+    label: "Current stack",
+    text: "Next.js, Tailwind, Framer Motion, and backend practice for practical builds.",
+  },
+  {
+    label: "What I want",
+    text: "Junior opportunities where I can keep learning, contribute, and grow fast.",
+  },
+];
+
 export default function Hero() {
   const [isGameActive, setGameActive] = useState(false);
   const shouldReduceMotion = useSafeReducedMotion();
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-transparent px-6 pt-0 md:px-10 xl:px-16">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-transparent px-5 pt-0 sm:px-6 md:px-10 xl:px-16">
       <BackgroundLines className="flex min-h-screen w-full items-center justify-center">
         <div className="pointer-events-none absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_10%,#000_65%,transparent_110%)]" />
@@ -77,7 +91,7 @@ export default function Hero() {
           <div className="absolute inset-x-[12%] bottom-[-8%] h-64 rounded-full bg-[radial-gradient(circle,rgba(249,115,22,0.16),transparent_65%)] blur-[90px]" />
         </div>
 
-        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center justify-center py-24 text-center md:py-28">
+        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center justify-center py-20 text-center sm:py-24 md:py-28">
           <SectionReveal className="relative z-20 w-full" y={24}>
             <StaggerReveal className="space-y-0" staggerChildren={0.1}>
               <StaggerItem>
@@ -98,32 +112,14 @@ export default function Hero() {
               </StaggerItem>
 
               <StaggerItem>
-                <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-12 text-center md:flex-row md:items-center md:justify-between md:text-left">
-                  <motion.div
-                    className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b1120]/85 p-1 shadow-[0_30px_80px_rgba(0,0,0,0.35)]"
-                    whileHover={{ scale: 1.03 }}
-                    transition={{ type: "spring", stiffness: 260, damping: 24 }}
-                  >
-                    <div className="relative overflow-hidden rounded-[1.8rem] bg-slate-950/95">
-                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.16),transparent_35%)]" />
-                      <Image
-                        src="/profile.png"
-                        alt="Jomar Lorigas"
-                        width={280}
-                        height={280}
-                        className="relative rounded-[1.8rem] object-cover"
-                        priority
-                      />
-                    </div>
-                  </motion.div>
-
-                  <div className="max-w-3xl md:max-w-xl">
-                    <h1 className="relative z-30 text-5xl font-black leading-[0.96] tracking-[-0.07em] text-white md:text-6xl xl:text-[5.8rem]">
+                <div className="mx-auto grid w-full max-w-6xl gap-10 text-center lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:text-left">
+                  <div className="max-w-3xl lg:max-w-none">
+                    <h1 className="relative z-30 text-4xl font-black leading-[0.95] tracking-[-0.07em] text-white sm:text-5xl md:text-6xl xl:text-[5.8rem]">
                       <span className="block">Building my path as</span>
                       <LayoutTextFlip
                         words={heroWords}
-                        className="mt-2 justify-center md:justify-start gap-x-0"
-                        wordClassName="min-w-0 text-center md:text-left opacity-80"
+                        className="mt-2 justify-center gap-x-0 lg:justify-start"
+                        wordClassName="min-w-0 text-center opacity-80 lg:text-left"
                       />
                     </h1>
 
@@ -133,32 +129,69 @@ export default function Hero() {
                       skills in frontend and full-stack development one step at a
                       time.
                     </p>
-                  </div>
-                </div>
-              </StaggerItem>
 
-              <StaggerItem>
-                <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-                  <a
-                    href="#projects"
-                    className="inline-flex min-w-[180px] items-center justify-center gap-2 rounded-2xl bg-white px-8 py-4 text-base font-semibold text-slate-950 shadow-[0_18px_50px_rgba(255,255,255,0.12)] transition hover:translate-y-[-1px] hover:bg-slate-100 dark:bg-white dark:text-black"
+                    <div className="mt-10 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+                      <a
+                        href="#projects"
+                        className="inline-flex min-w-[180px] items-center justify-center gap-2 rounded-2xl bg-white px-8 py-4 text-base font-semibold text-slate-950 shadow-[0_18px_50px_rgba(255,255,255,0.12)] transition hover:translate-y-[-1px] hover:bg-slate-100 dark:bg-white dark:text-black"
+                      >
+                        View Projects
+                      </a>
+                      <a
+                        href="#skills"
+                        className="inline-flex min-w-[180px] items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-8 py-4 text-base font-semibold text-white transition hover:border-cyan-300/30 hover:bg-white/[0.08]"
+                      >
+                        Explore Skills
+                      </a>
+                      <button
+                        type="button"
+                        onClick={() => setGameActive(true)}
+                        className="inline-flex min-w-[180px] items-center justify-center gap-2 rounded-2xl border border-fuchsia-300/20 bg-fuchsia-300/10 px-8 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-fuchsia-100 transition hover:border-fuchsia-200/40 hover:bg-fuchsia-300/16"
+                      >
+                        <Sparkles size={14} />
+                        Launch Mini Defense
+                      </button>
+                    </div>
+                  </div>
+
+                  <motion.div
+                    className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b1120]/85 p-5 text-left shadow-[0_30px_80px_rgba(0,0,0,0.35)]"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 24 }}
                   >
-                    View Projects
-                  </a>
-                  <a
-                    href="#skills"
-                    className="inline-flex min-w-[180px] items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-8 py-4 text-base font-semibold text-white transition hover:border-cyan-300/30 hover:bg-white/[0.08]"
-                  >
-                    Explore Skills
-                  </a>
-                  <button
-                    type="button"
-                    onClick={() => setGameActive(true)}
-                    className="inline-flex min-w-[180px] items-center justify-center gap-2 rounded-2xl border border-fuchsia-300/20 bg-fuchsia-300/10 px-8 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-fuchsia-100 transition hover:border-fuchsia-200/40 hover:bg-fuchsia-300/16"
-                  >
-                    <Sparkles size={14} />
-                    Launch Mini Defense
-                  </button>
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.16),transparent_35%)]" />
+                    <div className="relative z-10 space-y-5">
+                      <div className="flex items-center justify-between gap-3">
+                        <div>
+                          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-cyan-200">
+                            Build status
+                          </p>
+                          <p className="mt-2 text-sm text-gray-300">
+                            A responsive portfolio in motion
+                          </p>
+                        </div>
+                        <span className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-100">
+                          Active
+                        </span>
+                      </div>
+
+                      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+                        {heroHighlights.map((item) => (
+                          <div
+                            key={item.label}
+                            className="rounded-[1.25rem] border border-white/10 bg-white/[0.03] p-4"
+                          >
+                            <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-cyan-300/80">
+                              {item.label}
+                            </p>
+                            <p className="mt-2 text-sm leading-6 text-gray-300">
+                              {item.text}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
               </StaggerItem>
 
